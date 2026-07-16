@@ -1184,7 +1184,7 @@ footer{position:relative;z-index:10;border-top:1px solid var(--bdr);padding:2rem
     </div></section>
 
     <section class="portfolio-category" aria-labelledby="software-projects"><div class="portfolio-grid"><header class="portfolio-category-head rv"><h3 class="portfolio-category-title" id="software-projects"><i class="fa-solid fa-code"></i> Software Engineering Projects</h3><p>Applications demonstrating software engineering, full-stack development, APIs, databases, authentication, and scalable architecture.</p></header>
-      <article class="portfolio-card portfolio-coming rv" data-tilt><div class="card-glow"></div><div class="portfolio-body"><div class="portfolio-coming-icon"><i class="fa-solid fa-code"></i></div><div class="portfolio-meta"><span class="portfolio-badge">Coming Soon</span></div><h4 class="portfolio-title">Software Engineering Projects</h4><p class="portfolio-desc">Full-stack applications, APIs, database projects, and scalable software solutions are being prepared for the showcase.</p></div></article>
+      <article class="portfolio-card rv" data-tilt><div class="card-glow"></div><div class="portfolio-shot"><div class="portfolio-shot-inner"><div class="shot-bar"><i></i><i></i><i></i></div><div class="shot-layout"><div class="shot-copy"><div class="shot-line"></div><div class="shot-line"></div><div class="shot-line"></div><div class="shot-button"></div></div><div class="shot-visual"><i class="fa-solid fa-code"></i></div></div></div></div><div class="portfolio-body"><div class="portfolio-meta"><span class="portfolio-badge portfolio-badge--client">Software Engineering</span><span class="portfolio-badge">Live</span></div><h4 class="portfolio-title">⭐ Haven of Healing Counseling</h4><p class="portfolio-desc">Engineered and deployed a production-ready counseling website with a responsive interface, accessible user experience, reliable contact workflow, and maintainable front-end architecture.</p><div class="portfolio-stack"><span class="stk stk-v">HTML</span><span class="stk stk-v">CSS</span><span class="stk stk-b">JavaScript</span><span class="stk stk-c">Responsive Design</span><span class="stk stk-b">GitHub</span><span class="stk stk-c">Vercel</span></div><ul class="portfolio-features"><li><i class="fa-solid fa-check"></i>Accessible UX</li><li><i class="fa-solid fa-check"></i>Responsive architecture</li><li><i class="fa-solid fa-check"></i>Contact workflow</li><li><i class="fa-solid fa-check"></i>Production deployment</li></ul><div class="portfolio-actions"><a href="https://www.havenofhealingcounseling.com" target="_blank" rel="noopener" class="service-action">Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a><a href="#contact" class="service-action">Project Details <i class="fa-solid fa-arrow-right"></i></a></div></div></article>
     </div></section>
 
     <div class="services-cta portfolio-cta rv"><div class="cta-kicker"><i class="fa-solid fa-handshake"></i> Let's Create Together</div><h3>Interested in Working Together?</h3><p>Whether you need a business website, portfolio, landing page, or custom software solution, I'd love to help bring your ideas to life.</p><div class="services-cta-actions"><a href="#contact" class="btn-glow"><span>Request a Free Quote <i class="fa-solid fa-arrow-right"></i></span></a></div></div>
@@ -1619,19 +1619,9 @@ function runPageTransition(cb){
     setTimeout(()=>{PT.classList.remove('slide-out');PT.style.pointerEvents='none';},900);
   },900);
 }
-// run on first load
-function scrollToProjectsOnLoad(){
-  if(window.location.hash) return;
-  const target=document.getElementById('projects');
-  const nav=document.getElementById('nav');
-  if(!target) return;
-  const offset=nav?.offsetHeight || 0;
-  window.scrollTo({top: target.getBoundingClientRect().top + window.scrollY - offset - 8, behavior: 'auto'});
-}
-
 document.addEventListener('DOMContentLoaded',()=>{
   PT.classList.add('slide-out');
-  setTimeout(()=>{PT.classList.remove('slide-out');scrollToProjectsOnLoad();},950);
+  setTimeout(()=>{PT.classList.remove('slide-out');},950);
 });
 // intercept external links
 document.querySelectorAll('a[href^="http"]').forEach(a=>{
