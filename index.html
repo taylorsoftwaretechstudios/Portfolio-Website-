@@ -462,6 +462,46 @@ footer{position:relative;z-index:10;border-top:1px solid var(--bdr);padding:2rem
 /* ══════════════════════════════════════════
    SERVICES & PRICING
 ══════════════════════════════════════════ */
+#projects{overflow:hidden;background:linear-gradient(180deg,transparent,rgba(8,3,30,.5),transparent)}
+.portfolio-head{text-align:center;max-width:880px;margin:0 auto 4.5rem}
+.portfolio-head .lead{max-width:800px;margin:.9rem auto 0}
+.portfolio-category{margin-top:4.8rem}
+.portfolio-category:first-of-type{margin-top:0}
+.portfolio-category-head{grid-column:1/-1;margin-bottom:.5rem;padding-bottom:1.25rem;border-bottom:1px solid var(--bdr)}
+.portfolio-category-title{display:flex;align-items:center;gap:.8rem;font-family:var(--fs);font-size:clamp(1.7rem,3.5vw,2.45rem);font-weight:400;margin-bottom:.45rem}
+.portfolio-category-title i{font-size:1rem;color:var(--c)}
+.portfolio-category-head p{color:var(--text2);font-size:.92rem;line-height:1.75}
+.portfolio-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.2rem;align-items:stretch}
+.portfolio-card{display:flex;flex-direction:column;position:relative;overflow:hidden;border:1px solid var(--bdr);border-radius:18px;background:linear-gradient(145deg,rgba(14,7,50,.72),rgba(8,4,28,.66));-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);box-shadow:0 20px 55px rgba(0,0,0,.16);transition:transform .14s ease-out,border-color .3s,box-shadow .14s ease-out;will-change:transform,box-shadow}
+.portfolio-card::before{content:'';position:absolute;z-index:3;inset:0 0 auto;height:1px;background:linear-gradient(90deg,transparent,var(--v),var(--c),transparent);opacity:.65}
+.portfolio-card:hover{transform:translateY(-7px);border-color:rgba(103,232,249,.32);box-shadow:0 28px 75px rgba(3,1,15,.38),0 0 34px rgba(124,58,237,.08)}
+.portfolio-shot{position:relative;height:230px;overflow:hidden;border-bottom:1px solid var(--bdr);background:radial-gradient(circle at 75% 20%,rgba(103,232,249,.16),transparent 30%),linear-gradient(135deg,#120832,#06152b);display:grid;place-items:center;transition:filter .35s}
+.portfolio-shot-inner{width:78%;height:70%;padding:1rem;border:1px solid rgba(167,139,250,.23);border-radius:10px 10px 3px 3px;background:rgba(3,1,15,.78);box-shadow:0 22px 55px rgba(0,0,0,.4);transform:perspective(700px) rotateX(5deg) scale(1);transition:transform .5s ease}
+.portfolio-card:hover .portfolio-shot-inner{transform:perspective(700px) rotateX(0) scale(1.06)}
+.shot-bar{display:flex;gap:.3rem;padding-bottom:.7rem;border-bottom:1px solid var(--bdr)}
+.shot-bar i{width:6px;height:6px;border-radius:50%;background:var(--v)}
+.shot-bar i:nth-child(2){background:var(--c)}.shot-bar i:nth-child(3){background:var(--green)}
+.shot-layout{display:grid;grid-template-columns:1.2fr .8fr;gap:.8rem;height:calc(100% - 14px);padding-top:.8rem}
+.shot-copy{display:flex;flex-direction:column;gap:.45rem}.shot-line{height:6px;border-radius:6px;background:rgba(167,139,250,.18)}.shot-line:first-child{width:78%;height:13px;background:linear-gradient(90deg,var(--v2),var(--c2))}.shot-line:nth-child(2){width:92%}.shot-line:nth-child(3){width:66%}.shot-button{width:45%;height:15px;margin-top:.25rem;border-radius:3px;background:rgba(103,232,249,.3)}
+.shot-visual{border:1px solid var(--bdr);border-radius:7px;background:linear-gradient(145deg,rgba(124,58,237,.18),rgba(8,145,178,.12));display:grid;place-items:center;color:var(--c);font-size:1.6rem}
+.portfolio-body{display:flex;flex:1;flex-direction:column;padding:2rem}
+.portfolio-meta{display:flex;align-items:center;gap:.45rem;flex-wrap:wrap;margin-bottom:.9rem}
+.portfolio-badge{font-family:var(--fm);font-size:.57rem;letter-spacing:.12em;text-transform:uppercase;padding:.23rem .62rem;border:1px solid var(--bdrc);border-radius:3px;color:var(--c);background:rgba(103,232,249,.05)}
+.portfolio-badge--client{color:var(--gold);border-color:rgba(251,191,36,.28);background:rgba(251,191,36,.05)}
+.portfolio-title{font-size:1.13rem;line-height:1.25;font-weight:700;margin-bottom:.7rem}
+.portfolio-desc{color:var(--text2);font-size:.89rem;line-height:1.75;margin-bottom:1.2rem}
+.portfolio-stack{display:flex;flex-wrap:wrap;gap:.38rem;margin-bottom:1.35rem}
+.portfolio-features{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.58rem .9rem;list-style:none;margin-bottom:1.65rem}
+.portfolio-features li{display:flex;align-items:flex-start;gap:.5rem;color:var(--text2);font-size:.8rem;line-height:1.4}.portfolio-features i{color:var(--green);font-size:.65rem;margin-top:.25rem}
+.portfolio-actions{display:flex;gap:.65rem;flex-wrap:wrap;margin-top:auto}
+.portfolio-empty{border-style:dashed}.portfolio-empty .portfolio-shot{filter:saturate(.55);opacity:.72}
+.portfolio-coming{grid-column:1/-1;min-height:230px;align-items:center;justify-content:center;text-align:center;border-style:dashed}
+.portfolio-coming .portfolio-body{align-items:center;justify-content:center;max-width:620px}
+.portfolio-coming-icon{width:58px;height:58px;display:grid;place-items:center;margin-bottom:1rem;border:1px solid var(--bdrc);border-radius:15px;background:linear-gradient(135deg,rgba(124,58,237,.16),rgba(8,145,178,.12));color:var(--c);font-size:1.3rem}
+.portfolio-coming .portfolio-desc{margin-bottom:0}
+.portfolio-card .card-glow{position:absolute;inset:0;pointer-events:none;border-radius:inherit;opacity:0;transition:opacity .35s;z-index:0}.portfolio-card:hover .card-glow{opacity:1}.portfolio-card>*:not(.card-glow){position:relative;z-index:1}
+.portfolio-cta{margin-top:5rem}
+
 #services{overflow:hidden;background:linear-gradient(180deg,transparent,rgba(8,3,30,.5),transparent)}
 .services-orb{position:absolute;width:620px;height:620px;border-radius:50%;filter:blur(90px);pointer-events:none;opacity:.12;background:linear-gradient(135deg,var(--v2),var(--c2));top:8%;right:-18%}
 .services-head{text-align:center;max-width:880px;margin:0 auto 3.5rem}
@@ -619,6 +659,8 @@ footer{position:relative;z-index:10;border-top:1px solid var(--bdr);padding:2rem
   .exp-head{flex-direction:column;align-items:flex-start}
   .contact-avail{width:100%}
   .service-grid,.payment-grid{grid-template-columns:1fr}
+  .portfolio-grid{grid-template-columns:1fr}
+  .portfolio-shot{height:230px}
   .service-card--wide{grid-column:auto}
 }
 /* MOBILE */
@@ -652,6 +694,11 @@ footer{position:relative;z-index:10;border-top:1px solid var(--bdr);padding:2rem
   .navbar-links{display:none}
   .proj-mock{min-height:220px}
   .service-card{padding:1.45rem}
+  .portfolio-body{padding:1.45rem}
+  .portfolio-features{grid-template-columns:1fr}
+  .portfolio-actions{flex-direction:column;align-items:stretch}
+  .portfolio-actions .service-action{width:100%}
+  .portfolio-category{margin-top:3.7rem}
   .service-list,.why-grid{grid-template-columns:1fr}
   .services-cta{padding:2.7rem 1.2rem}
   .services-cta-actions{flex-direction:column}
@@ -1121,118 +1168,26 @@ footer{position:relative;z-index:10;border-top:1px solid var(--bdr);padding:2rem
   </div>
 </section>
 
-<!-- ══════════════ PROJECTS ══════════════ -->
-<section id="projects">
+<!-- ══════════════ PORTFOLIO SHOWCASE ══════════════ -->
+<section id="projects" aria-labelledby="portfolio-title">
+  <div class="services-orb" aria-hidden="true"></div>
   <div class="wrap">
-    <div class="proj-intro rv">
-      <div>
-        <span class="section-label">Projects</span>
-        <h2 class="display">Work I've<br><em>built.</em></h2>
-      </div>
-      <div class="proj-intro-r">
-        <div class="pir-item">Real clients</div>
-        <div class="pir-item">Real code</div>
-        <div class="pir-item">Real production</div>
-      </div>
-    </div>
+    <header class="portfolio-head rv"><div class="services-badge"><i class="fa-solid fa-layer-group"></i> Selected Work &amp; Concepts</div><span class="section-label">Projects</span><h2 class="display" id="portfolio-title">Portfolio <em>Showcase</em></h2><p class="lead">Explore a collection of websites, software applications, and real client projects I've designed and developed. Every project represents my commitment to creating modern, responsive, scalable, and high-quality digital experiences.</p></header>
 
-    <!-- Featured: Live client project -->
-    <div class="proj-featured rv">
-      <div class="proj-featured-inner">
-        <div class="proj-info">
-          <div class="proj-badge-row">
-            <span class="proj-badge pb-live">● Live</span>
-            <span class="proj-badge pb-client">Client Work</span>
-            <span class="proj-badge pb-full">Full-Stack</span>
-          </div>
-          <h3 class="proj-name">Haven of Healing<br>Counseling</h3>
-          <p class="proj-desc">A complete professional therapy business website built for a real client. Fully responsive across all devices, with a Node.js and Express backend handling form submissions and server-side logic. Designed to build trust, drive bookings, and represent a mental health practice with warmth and clarity. Deployed and live on Render.</p>
-          <div class="proj-stack">
-            <span class="stk stk-v">HTML5</span><span class="stk stk-v">CSS3</span><span class="stk stk-b">JavaScript</span>
-            <span class="stk stk-v">Node.js</span><span class="stk stk-v">Express.js</span>
-            <span class="stk stk-b">Render</span><span class="stk stk-c">Responsive</span><span class="stk stk-c">Backend</span>
-          </div>
-          <a href="https://www.havenofhealingcounseling.com" target="_blank" rel="noopener" class="proj-link">
-            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-            Visit Live Site
-          </a>
-        </div>
-        <div class="proj-mock">
-          <div class="mock-chrome">
-            <div class="mc-dot mc-r"></div><div class="mc-dot mc-y"></div><div class="mc-dot mc-g"></div>
-            <div class="mc-url">havenofhealingcounseling.com</div>
-          </div>
-          <div class="mock-body">
-            <div class="mk-header"><span class="mk-logo-text">Haven of Healing</span><div class="mk-nav-pills"><div class="mk-pill on"></div><div class="mk-pill"></div><div class="mk-pill"></div></div></div>
-            <div class="mk-hero-area">
-              <div class="mk-h1">Your path to healing<br>begins here.</div>
-              <div class="mk-h2">Compassionate counseling for individuals, couples &amp; families.</div>
-              <div class="mk-cta-bar"></div>
-            </div>
-            <div class="mk-cards">
-                <div class="mk-c"><div class="mk-line mk-line--80 mk-line--cyan"></div><div class="mk-line mk-line--52 mk-line--violet"></div></div>
-              <div class="mk-c"><div class="mk-line mk-line--80 mk-line--violet"></div><div class="mk-line mk-line--52 mk-line--cyan-2"></div></div>
-              <div class="mk-c"><div class="mk-line mk-line--80 mk-line--blue"></div><div class="mk-line mk-line--52 mk-line--violet-2"></div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <section class="portfolio-category" aria-labelledby="client-projects"><div class="portfolio-grid">
+      <header class="portfolio-category-head rv"><h3 class="portfolio-category-title" id="client-projects"><i class="fa-solid fa-building"></i> Business &amp; Client Websites</h3><p>Professional websites built for real businesses, organizations, and entrepreneurs.</p></header>
+      <article class="portfolio-card rv" data-tilt><div class="card-glow"></div><div class="portfolio-shot"><div class="portfolio-shot-inner"><div class="shot-bar"><i></i><i></i><i></i></div><div class="shot-layout"><div class="shot-copy"><div class="shot-line"></div><div class="shot-line"></div><div class="shot-line"></div><div class="shot-button"></div></div><div class="shot-visual"><i class="fa-solid fa-heart"></i></div></div></div></div><div class="portfolio-body"><div class="portfolio-meta"><span class="portfolio-badge portfolio-badge--client">Real Client Project</span><span class="portfolio-badge">Live</span></div><h4 class="portfolio-title">⭐ Haven of Healing Counseling</h4><p class="portfolio-desc">Designed and developed a professional counseling website focused on user experience, accessibility, responsive design, and helping clients easily learn about available counseling services.</p><div class="portfolio-stack"><span class="stk stk-v">HTML</span><span class="stk stk-v">CSS</span><span class="stk stk-b">JavaScript</span><span class="stk stk-c">Responsive Design</span><span class="stk stk-b">GitHub</span><span class="stk stk-c">Vercel</span></div><ul class="portfolio-features"><li><i class="fa-solid fa-check"></i>Accessible UX</li><li><i class="fa-solid fa-check"></i>Mobile-first layout</li><li><i class="fa-solid fa-check"></i>Service discovery</li><li><i class="fa-solid fa-check"></i>Production deployment</li></ul><div class="portfolio-actions"><a href="https://www.havenofhealingcounseling.com" target="_blank" rel="noopener" class="service-action">Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a><a href="#contact" class="service-action">Project Details <i class="fa-solid fa-arrow-right"></i></a></div></div></article>
+    </div></section>
 
-    <!-- Other projects grid -->
-    <div class="proj-grid rv">
-      <div class="pg-card" data-tilt>
-        <div class="card-glow"></div>
-        <div class="pgc-top">
-          <div class="pgc-lang">🌐 Web</div>
-          <div class="pgc-title">MediaHub Redesign</div>
-          <p class="pgc-desc">Redesigned the web interface as a concept project focused on improving navigation, accessibility, responsiveness, and overall user experience.</p>
-        </div>
-        <div class="pgc-stack"><span class="stk stk-v">HTML</span><span class="stk stk-v">CSS</span><span class="stk stk-b">JavaScript</span><span class="stk stk-b">UI/UX</span></div>
-      </div>
+    <section class="portfolio-category" aria-labelledby="custom-projects"><div class="portfolio-grid"><header class="portfolio-category-head rv"><h3 class="portfolio-category-title" id="custom-projects"><i class="fa-solid fa-wand-magic-sparkles"></i> Custom Websites</h3><p>Examples of custom websites designed for businesses, personal brands, startups, nonprofits, and organizations.</p></header>
+      <article class="portfolio-card portfolio-coming rv" data-tilt><div class="card-glow"></div><div class="portfolio-body"><div class="portfolio-coming-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div><div class="portfolio-meta"><span class="portfolio-badge">Coming Soon</span></div><h4 class="portfolio-title">Custom Website Projects</h4><p class="portfolio-desc">New custom website designs and client-ready concepts are currently in development. Check back soon to explore the collection.</p></div></article>
+    </div></section>
 
-      <div class="pg-card" data-tilt>
-        <div class="card-glow"></div>
-        <div class="pgc-top">
-          <div class="pgc-lang">🔐 Security</div>
-          <div class="pgc-title">Device House Management</div>
-          <p class="pgc-desc">Built a household device monitoring dashboard that tracks which devices use the most Wi-Fi and helps users manage network prioritization, device status, and security.</p>
-        </div>
-        <div class="pgc-stack"><span class="stk stk-c">JavaScript</span><span class="stk stk-b">Network Analytics</span><span class="stk stk-b">Cybersecurity</span></div>
-      </div>
+    <section class="portfolio-category" aria-labelledby="software-projects"><div class="portfolio-grid"><header class="portfolio-category-head rv"><h3 class="portfolio-category-title" id="software-projects"><i class="fa-solid fa-code"></i> Software Engineering Projects</h3><p>Applications demonstrating software engineering, full-stack development, APIs, databases, authentication, and scalable architecture.</p></header>
+      <article class="portfolio-card portfolio-coming rv" data-tilt><div class="card-glow"></div><div class="portfolio-body"><div class="portfolio-coming-icon"><i class="fa-solid fa-code"></i></div><div class="portfolio-meta"><span class="portfolio-badge">Coming Soon</span></div><h4 class="portfolio-title">Software Engineering Projects</h4><p class="portfolio-desc">Full-stack applications, APIs, database projects, and scalable software solutions are being prepared for the showcase.</p></div></article>
+    </div></section>
 
-      <div class="pg-card" data-tilt>
-        <div class="card-glow"></div>
-        <div class="pgc-top">
-          <div class="pgc-lang">🧠 AI</div>
-          <div class="pgc-title">Student Career Operating System</div>
-          <p class="pgc-desc">Built an AI-powered student productivity platform that tracks assignments, resumes, internships, projects, certifications, and goals, with a chatbot assistant answering questions about career progress and personal tasks.</p>
-        </div>
-        <div class="pgc-stack"><span class="stk stk-v">Full-Stack</span><span class="stk stk-b">AI</span><span class="stk stk-b">Productivity</span></div>
-      </div>
-
-      <div class="pg-card" data-tilt>
-        <div class="card-glow"></div>
-        <div class="pgc-top">
-          <div class="pgc-lang">🌐 Web</div>
-          <div class="pgc-title">Food Mashup Website</div>
-          <p class="pgc-desc">A dynamic food mash-up website built with XAMPP featuring color-coded layouts. Implements interactive order management — adding, deleting, and tracking orders with real-time timestamps and seamless responsive navigation.</p>
-        </div>
-        <div class="pgc-stack"><span class="stk stk-c">HTML</span><span class="stk stk-v">C++</span><span class="stk stk-b">JavaScript</span><span class="stk stk-b">XAMPP</span></div>
-      </div>
-    </div>
-
-    <div class="proj-soon rv">
-      <div class="ps-left">
-        <div class="ps-title">More projects building now</div>
-        <div class="ps-sub">Check back soon</div>
-      </div>
-      <div class="proj-soon-tags">
-        <span class="atag atag-v">Web Apps</span>
-        <span class="atag atag-c">Security Tools</span>
-        <span class="atag atag-r">Open Source</span>
-      </div>
-    </div>
+    <div class="services-cta portfolio-cta rv"><div class="cta-kicker"><i class="fa-solid fa-handshake"></i> Let's Create Together</div><h3>Interested in Working Together?</h3><p>Whether you need a business website, portfolio, landing page, or custom software solution, I'd love to help bring your ideas to life.</p><div class="services-cta-actions"><a href="#contact" class="btn-glow"><span>Request a Free Quote <i class="fa-solid fa-arrow-right"></i></span></a></div></div>
   </div>
 </section>
 
@@ -1769,7 +1724,7 @@ function spawnRipple(card,x,y){
   setTimeout(()=>r.remove(),800);
 }
 // Apply the portfolio's cursor-tracking glow and 3D tilt to service/payment cards.
-document.querySelectorAll('.service-card,.payment-card,.timeline-card').forEach(card=>{
+document.querySelectorAll('.service-card,.payment-card,.timeline-card,.portfolio-card').forEach(card=>{
   card.dataset.tilt='';
   if(!card.querySelector('.card-glow')){
     const glow=document.createElement('div');
@@ -1783,7 +1738,7 @@ if(!isMobile&&!reduceMotion){
       const rect=card.getBoundingClientRect();
       const cx=rect.left+rect.width/2,cy=rect.top+rect.height/2;
       const dx=(e.clientX-cx)/rect.width*2,dy=(e.clientY-cy)/rect.height*2;
-      const isServiceCard=card.matches('.service-card,.payment-card,.timeline-card');
+      const isServiceCard=card.matches('.service-card,.payment-card,.timeline-card,.portfolio-card');
       const compactViewport=window.innerWidth<1200;
       const tilt=isServiceCard?(compactViewport?13:18):TILT_MAX;
       const rotX=-dy*tilt,rotY=dx*tilt;
