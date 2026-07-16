@@ -6,6 +6,7 @@
 <title>Taylor — Web Developer · Cybersecurity · Software Engineer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
 <style>
 /* ══════════════════════════════════════════
    RESET
@@ -38,6 +39,7 @@
 }
 html{scroll-behavior:smooth}
 body{background:var(--ink);color:var(--text);font-family:var(--fh);overflow-x:hidden;cursor:none;-webkit-font-smoothing:antialiased}
+@media (hover:none),(pointer:coarse){body{cursor:auto}#mag-dot,#mag-ring,.cursor-trail{display:none!important}}
 
 /* ══════════════════════════════════════════
    MAGNETIC CURSOR
@@ -458,6 +460,68 @@ footer{position:relative;z-index:10;border-top:1px solid var(--bdr);padding:2rem
 .portfolio-note p strong{color:var(--text2);font-weight:500}
 
 /* ══════════════════════════════════════════
+   SERVICES & PRICING
+══════════════════════════════════════════ */
+#services{overflow:hidden;background:linear-gradient(180deg,transparent,rgba(8,3,30,.5),transparent)}
+.services-orb{position:absolute;width:620px;height:620px;border-radius:50%;filter:blur(90px);pointer-events:none;opacity:.12;background:linear-gradient(135deg,var(--v2),var(--c2));top:8%;right:-18%}
+.services-head{text-align:center;max-width:880px;margin:0 auto 3.5rem}
+.services-badge{display:inline-flex;align-items:center;gap:.55rem;margin-bottom:1.5rem;padding:.48rem 1rem;border:1px solid rgba(103,232,249,.3);border-radius:999px;background:linear-gradient(135deg,rgba(124,58,237,.14),rgba(8,145,178,.12));color:var(--c);font-family:var(--fm);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;box-shadow:0 0 28px rgba(103,232,249,.1);animation:serviceGlow 3s ease-in-out infinite}
+.services-head .lead{max-width:780px;margin:.9rem auto 0}
+.services-intro{max-width:760px;margin:1.15rem auto 0;color:var(--text2);font-size:.94rem;line-height:1.85}
+.service-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.2rem}
+.service-card{display:flex;flex-direction:column;position:relative;overflow:hidden;padding:2rem;border:1px solid var(--bdr);border-radius:18px;background:linear-gradient(145deg,rgba(14,7,50,.72),rgba(8,4,28,.66));-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);box-shadow:0 20px 55px rgba(0,0,0,.16);transition:transform .14s ease-out,border-color .3s,box-shadow .14s ease-out;will-change:transform,box-shadow}
+.service-card::before{content:'';position:absolute;inset:0 0 auto;height:1px;background:linear-gradient(90deg,transparent,var(--v),var(--c),transparent);opacity:.65}
+.service-card:hover{transform:translateY(-7px);border-color:rgba(103,232,249,.32);box-shadow:0 28px 75px rgba(3,1,15,.38),0 0 34px rgba(124,58,237,.08)}
+.service-card--wide{grid-column:1/-1}
+.service-top{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.15rem}
+.service-icon{width:48px;height:48px;display:grid;place-items:center;flex:0 0 auto;border:1px solid rgba(103,232,249,.22);border-radius:13px;background:linear-gradient(135deg,rgba(124,58,237,.16),rgba(8,145,178,.12));color:var(--c);font-size:1.15rem}
+.service-name{font-size:1.13rem;line-height:1.25;font-weight:700;margin-bottom:.25rem}
+.service-price{font-family:var(--fm);font-size:.68rem;color:var(--v);letter-spacing:.08em;text-transform:uppercase}
+.service-desc{color:var(--text2);font-size:.89rem;line-height:1.75;margin-bottom:1.3rem}
+.service-includes{font-family:var(--fm);font-size:.59rem;color:var(--text3);letter-spacing:.15em;text-transform:uppercase;margin-bottom:.75rem}
+.service-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.62rem 1rem;list-style:none;margin-bottom:1.8rem}
+.service-list li{display:flex;align-items:flex-start;gap:.55rem;color:var(--text2);font-size:.82rem;line-height:1.45}
+.service-list i{color:var(--green);font-size:.68rem;margin-top:.25rem}
+.service-action{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;align-self:flex-start;margin-top:auto;padding:.72rem 1.15rem;border:1px solid var(--bdr2);border-radius:6px;color:var(--text);background:rgba(167,139,250,.05);font-family:var(--fm);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:background .25s,border-color .25s,transform .25s,box-shadow .25s}
+.service-action:hover{transform:translateY(-2px);border-color:var(--c);background:linear-gradient(135deg,var(--v2),var(--c2));box-shadow:0 10px 30px rgba(124,58,237,.25)}
+.service-action:focus-visible,.services-cta a:focus-visible{outline:2px solid var(--c);outline-offset:4px}
+.why-services{margin-top:5rem}
+.services-subhead{text-align:center;font-family:var(--fs);font-size:clamp(1.8rem,4vw,2.7rem);font-weight:400;margin-bottom:2rem}
+.services-subhead em{font-style:italic;color:var(--c)}
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.why-card{padding:1.45rem;border:1px solid var(--bdr);border-radius:14px;background:var(--panel);transition:transform .28s,border-color .28s}
+.why-card:hover{transform:translateY(-4px);border-color:rgba(167,139,250,.38)}
+.why-icon{width:38px;height:38px;display:grid;place-items:center;margin-bottom:1rem;border-radius:10px;color:var(--c);background:rgba(103,232,249,.07);border:1px solid var(--bdrc)}
+.why-card h4{font-size:.94rem;margin-bottom:.5rem}
+.why-card p{color:var(--text2);font-size:.82rem;line-height:1.65}
+.pricing-note{display:flex;align-items:flex-start;gap:1rem;margin-top:1.2rem;padding:1.4rem 1.55rem;border:1px solid rgba(103,232,249,.22);border-radius:14px;background:linear-gradient(135deg,rgba(124,58,237,.08),rgba(8,145,178,.07));-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);color:var(--text2);font-size:.87rem;line-height:1.75}
+.pricing-note i{color:var(--c);margin-top:.3rem}
+.payment-section{margin-top:3rem}
+.payment-heading{display:flex;align-items:center;gap:.75rem;margin-bottom:1.2rem;font-size:1.35rem}
+.payment-heading i{color:var(--c)}
+.payment-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:1.2rem}
+.payment-card{position:relative;overflow:hidden;padding:1.7rem;border:1px solid var(--bdr);border-radius:16px;background:linear-gradient(145deg,rgba(14,7,50,.72),rgba(8,4,28,.66));-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);box-shadow:0 18px 50px rgba(0,0,0,.15);transition:transform .14s ease-out,border-color .3s,box-shadow .14s ease-out;will-change:transform,box-shadow}
+.payment-card:hover{border-color:rgba(103,232,249,.34);box-shadow:0 24px 65px rgba(3,1,15,.35),0 0 30px rgba(103,232,249,.07)}
+.payment-method{display:flex;align-items:center;gap:1rem;margin-bottom:1rem}
+.payment-icon{width:46px;height:46px;display:grid;place-items:center;border:1px solid rgba(52,211,153,.25);border-radius:12px;background:rgba(52,211,153,.08);color:var(--green);font-size:1.15rem}
+.payment-label{font-family:var(--fm);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text3);margin-bottom:.2rem}
+.payment-name{font-size:1.05rem;font-weight:700}
+.payment-card p{position:relative;z-index:1;color:var(--text2);font-size:.87rem;line-height:1.75}
+.payment-deposit{display:flex;align-items:flex-start;gap:.9rem;border-color:rgba(251,191,36,.2);background:linear-gradient(145deg,rgba(251,191,36,.055),rgba(14,7,50,.65))}
+.payment-deposit>i{position:relative;z-index:1;color:var(--gold);margin-top:.3rem}
+.service-card .card-glow,.payment-card .card-glow{position:absolute;inset:0;pointer-events:none;border-radius:inherit;opacity:0;transition:opacity .35s;z-index:0}
+.service-card:hover .card-glow,.payment-card:hover .card-glow{opacity:1}
+.service-card>*:not(.card-glow),.payment-card>*:not(.card-glow){position:relative;z-index:1}
+.services-cta{position:relative;overflow:hidden;text-align:center;margin-top:4.5rem;padding:3.5rem 2rem;border:1px solid rgba(167,139,250,.3);border-radius:22px;background:radial-gradient(circle at 50% 0,rgba(103,232,249,.12),transparent 42%),linear-gradient(135deg,rgba(124,58,237,.18),rgba(8,145,178,.1));box-shadow:0 28px 90px rgba(3,1,15,.35)}
+.services-cta h3{font-family:var(--fs);font-size:clamp(2rem,4vw,3.1rem);font-weight:400;margin-bottom:.55rem}
+.services-cta .cta-kicker{color:var(--c);font-family:var(--fm);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.8rem}
+.services-cta p{max-width:660px;margin:0 auto 1.8rem;color:var(--text2);line-height:1.8}
+.services-cta-actions{display:flex;justify-content:center;gap:.85rem;flex-wrap:wrap}
+.services-cta .btn-glow{animation:ctaPulse 2.8s ease-in-out infinite}
+@keyframes serviceGlow{50%{box-shadow:0 0 38px rgba(103,232,249,.2);border-color:rgba(167,139,250,.48)}}
+@keyframes ctaPulse{50%{box-shadow:0 12px 42px rgba(124,58,237,.48);transform:translateY(-2px)}}
+
+/* ══════════════════════════════════════════
    CREDENTIALS GRID
 ══════════════════════════════════════════ */
 .sk-cat-creds{grid-column:1/-1}
@@ -491,42 +555,52 @@ footer{position:relative;z-index:10;border-top:1px solid var(--bdr);padding:2rem
 /* ══════════════════════════════════════════
    RESPONSIVE
 ══════════════════════════════════════════ */
+@media(max-width:1200px){
+  .about-layout,.skills-layout,.resume-layout,#experience .exp-layout{gap:3rem}
+  .wrap{padding-inline:2rem}
+  .proj-featured-inner{grid-template-columns:1fr}
+  .proj-mock{min-height:260px;border-left:none;border-top:1px solid var(--bdr)}
+  .tools-bento{grid-template-columns:repeat(4,1fr)!important}
+}
 @media(max-width:1020px){
   .about-layout,.skills-layout{grid-template-columns:1fr;gap:3rem}
   .skills-sidebar,.exp-sidebar{position:static}
-  .proj-featured-inner{grid-template-columns:1fr}
-  .proj-mock{min-height:200px}
   #experience .exp-layout{grid-template-columns:1fr;gap:2.5rem}
   .exp-sidebar{position:static}
-  .tools-bento{grid-template-columns:repeat(4,1fr)!important}
   .contact-direct{grid-template-columns:1fr!important}
   .contact-socials{grid-template-columns:1fr 1fr!important}
   .contact-avail{flex-direction:column;align-items:flex-start}
   .cred-grid{grid-template-columns:1fr 1fr}
   .resume-layout{grid-template-columns:1fr;gap:2rem}
   .proj-grid{grid-template-columns:1fr}
-  .proj-intro{flex-direction:column;gap:1rem}
+  .proj-intro{flex-direction:column;gap:1rem;align-items:flex-start}
+  .proj-intro-r{align-items:flex-start}
+  .nav-links{display:none}
+  .nav-burger{display:flex}
+  .why-grid{grid-template-columns:repeat(2,1fr)}
 }
 /* TABLET */
 @media(max-width:768px){
   :root{--nav:60px}
-  .nav-links{display:none}
-  .nav-burger{display:flex}
   .wrap{padding:5rem 1.4rem}
   .display{font-size:clamp(1.8rem,7vw,2.8rem)}
   .tools-bento{grid-template-columns:repeat(3,1fr)!important}
   .cred-grid{grid-template-columns:1fr}
   .contact-socials{grid-template-columns:1fr!important}
   .about-layout{gap:2.5rem}
-  .res-lang-grid{grid-template-columns:1fr 1fr}
   .proj-grid{grid-template-columns:1fr}
-  .skill-blocks{grid-template-columns:1fr}
+  .hero-actions{flex-wrap:wrap}
+  .btn-glow,.btn-outline{min-height:44px}
+  .about-stats{grid-template-columns:1fr 1fr}
+  .social-row,.contact-socials--four,.contact-socials--two{grid-template-columns:1fr 1fr}
+  .exp-head{flex-direction:column;align-items:flex-start}
+  .contact-avail{width:100%}
+  .service-grid,.payment-grid{grid-template-columns:1fr}
+  .service-card--wide{grid-column:auto}
 }
 /* MOBILE */
-@media(max-width:480px){
+@media(max-width:560px){
   :root{--nav:58px}
-  .nav-links{display:none}
-  .nav-burger{display:flex}
   .logo-text{display:none}
   .wrap{padding:4.5rem 1.1rem}
   .display{font-size:clamp(1.6rem,8vw,2.4rem)}
@@ -537,32 +611,42 @@ footer{position:relative;z-index:10;border-top:1px solid var(--bdr);padding:2rem
   .hero-roles{gap:.4rem}
   .role-tag{font-size:.58rem;padding:.28rem .7rem}
   .hero-tagline{font-size:.95rem}
-  .h-btns{flex-direction:column;gap:.7rem}
+  .hero-actions{flex-direction:column;align-items:stretch;gap:.7rem}
   .btn-glow,.btn-outline{width:100%;justify-content:center;text-align:center}
   .tools-bento{grid-template-columns:repeat(2,1fr)!important}
   .cred-grid{grid-template-columns:1fr}
-  .res-lang-grid{grid-template-columns:1fr}
   .proj-grid{grid-template-columns:1fr}
-  .skill-blocks{grid-template-columns:1fr}
-  .proj-featured-inner{grid-template-columns:1fr}
   .proj-info{padding:1.6rem}
   .contact-direct{grid-template-columns:1fr!important}
-  .contact-socials{grid-template-columns:1fr!important}
+  .contact-socials,.social-row,.contact-socials--four,.contact-socials--two{grid-template-columns:1fr!important}
   .ca-right{gap:.4rem}
   .ca-pill{font-size:.58rem;padding:.25rem .65rem}
-  .res-download{flex-direction:column;align-items:flex-start;gap:1rem}
-  .rd-actions{flex-direction:column;gap:.6rem;width:100%}
-  .rd-actions a{width:100%;justify-content:center;text-align:center}
   .exp-card{padding:1.2rem 1.4rem}
-  .rp-item{padding:1.1rem 1.2rem}
   .about-pull blockquote{font-size:1rem}
   .sc-val{font-size:1.8rem}
   .proj-soon{flex-direction:column;gap:1rem}
-  footer{flex-direction:column;text-align:center;gap:.5rem}
+  .about-stats{grid-template-columns:1fr}
+  .navbar-links{display:none}
+  .proj-mock{min-height:220px}
+  .service-card{padding:1.45rem}
+  .service-list,.why-grid{grid-template-columns:1fr}
+  .services-cta{padding:2.7rem 1.2rem}
+  .services-cta-actions{flex-direction:column}
+  .pricing-note{padding:1.2rem}
+  .payment-card{padding:1.35rem}
+}
+@media(max-width:420px){
+  .nav-burger{width:42px;height:42px;padding:9px;
+  gap:5px}
+  .hero-name .n-grad{font-size:clamp(1.55rem,10vw,2rem)}
+  .hero-actions .btn-glow,.hero-actions .btn-outline{padding:.78rem 1.1rem}
+  .contact-direct .cd-card,.contact-socials .cs-card,.proj-soon,.sk-cat,.stat-card,.exp-card,.pg-card{border-radius:12px}
+  .scroll-cue{display:none}
 }
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
   .rv,.rvl,.rvr{opacity:1;transform:none}
+  [data-tilt]{transform:none!important;box-shadow:none!important}
 }
 
 /* ══════════════════════════════════════════
@@ -661,6 +745,7 @@ footer{position:relative;z-index:10;border-top:1px solid var(--bdr);padding:2rem
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#projects">Projects</a></li>
+    <li><a href="#services">Services</a></li>
     <li><a href="#resume">Resume</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -676,6 +761,7 @@ footer{position:relative;z-index:10;border-top:1px solid var(--bdr);padding:2rem
   <a href="#about">About</a>
   <a href="#skills">Skills</a>
   <a href="#projects">Projects</a>
+  <a href="#services">Services</a>
   <a href="#resume">Resume</a>
   <a href="#experience">Experience</a>
   <a href="#contact">Contact</a>
@@ -1125,6 +1211,40 @@ footer{position:relative;z-index:10;border-top:1px solid var(--bdr);padding:2rem
   </div>
 </section>
 
+<!-- ══════════════ SERVICES & PRICING ══════════════ -->
+<section id="services" aria-labelledby="services-title">
+  <div class="services-orb" aria-hidden="true"></div>
+  <div class="wrap">
+    <header class="services-head rv">
+      <div class="services-badge"><i class="fa-solid fa-rocket" aria-hidden="true"></i> Currently Accepting New Projects</div>
+      <span class="section-label">Taylor Software Tech Studio</span>
+      <h2 class="display" id="services-title">Software Development <em>Services</em></h2>
+      <p class="lead">Helping businesses and individuals build modern, responsive websites and custom software solutions designed for performance, scalability, and exceptional user experiences.</p>
+      <p class="services-intro">Whether you're launching a new business, refreshing an existing website, or looking for a custom software solution, I'm here to help turn your ideas into reality through clean, modern, and reliable development.</p>
+    </header>
+
+    <div class="service-grid">
+      <article class="service-card rv"><div class="service-top"><div class="service-icon"><i class="fa-solid fa-globe"></i></div><div><h3 class="service-name">Custom Website Development</h3><div class="service-price">Starting at $350</div></div></div><p class="service-desc">Professional websites built for businesses, organizations, startups, and personal brands.</p><div class="service-includes">Includes</div><ul class="service-list"><li><i class="fa-solid fa-check"></i>Responsive Design</li><li><i class="fa-solid fa-check"></i>Mobile Friendly</li><li><i class="fa-solid fa-check"></i>Up to 5 Pages</li><li><i class="fa-solid fa-check"></i>Contact Form</li><li><i class="fa-solid fa-check"></i>Social Media Links</li><li><i class="fa-solid fa-check"></i>Basic SEO</li><li><i class="fa-solid fa-check"></i>Fast Performance</li><li><i class="fa-solid fa-check"></i>Professional Layout</li></ul><a href="#contact" class="service-action">Request a Free Quote <i class="fa-solid fa-arrow-right"></i></a></article>
+      <article class="service-card rv" data-tilt><div class="card-glow"></div><div class="service-top"><div class="service-icon"><i class="fa-solid fa-building"></i></div><div><h3 class="service-name">Professional Business Websites</h3><div class="service-price">Starting at $700</div></div></div><p class="service-desc">Premium business websites designed to establish a professional online presence and help businesses attract more customers.</p><div class="service-includes">Includes</div><ul class="service-list"><li><i class="fa-solid fa-check"></i>Everything in Starter</li><li><i class="fa-solid fa-check"></i>Custom Design</li><li><i class="fa-solid fa-check"></i>Additional Pages</li><li><i class="fa-solid fa-check"></i>Google Maps Integration</li><li><i class="fa-solid fa-check"></i>Business Contact Info</li><li><i class="fa-solid fa-check"></i>Performance Optimization</li><li><i class="fa-solid fa-check"></i>Modern UI/UX</li><li><i class="fa-solid fa-check"></i>Professional Branding</li></ul><a href="#contact" class="service-action">Request a Free Quote <i class="fa-solid fa-arrow-right"></i></a></article>
+      <article class="service-card rv" data-tilt><div class="card-glow"></div><div class="service-top"><div class="service-icon"><i class="fa-solid fa-palette"></i></div><div><h3 class="service-name">Portfolio Websites</h3><div class="service-price">Starting at $250</div></div></div><p class="service-desc">Professional portfolio websites for students, software developers, designers, creatives, freelancers, and professionals who want to showcase their work online.</p><div class="service-includes">Includes</div><ul class="service-list"><li><i class="fa-solid fa-check"></i>Modern Responsive Design</li><li><i class="fa-solid fa-check"></i>About Me Section</li><li><i class="fa-solid fa-check"></i>Skills Section</li><li><i class="fa-solid fa-check"></i>Projects Showcase</li><li><i class="fa-solid fa-check"></i>Resume Integration</li><li><i class="fa-solid fa-check"></i>Contact Section</li><li><i class="fa-solid fa-check"></i>GitHub &amp; LinkedIn Links</li><li><i class="fa-solid fa-check"></i>Smooth Animations</li><li><i class="fa-solid fa-check"></i>Mobile-Friendly Design</li></ul><a href="#contact" class="service-action">Request a Free Quote <i class="fa-solid fa-arrow-right"></i></a></article>
+      <article class="service-card rv"><div class="service-top"><div class="service-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div><div><h3 class="service-name">Website Updates &amp; Improvements</h3><div class="service-price">Starting at $75</div></div></div><p class="service-desc">Improve, modernize, or expand your existing website.</p><div class="service-includes">Includes</div><ul class="service-list"><li><i class="fa-solid fa-check"></i>Bug Fixes</li><li><i class="fa-solid fa-check"></i>Content Updates</li><li><i class="fa-solid fa-check"></i>New Features</li><li><i class="fa-solid fa-check"></i>UI Improvements</li><li><i class="fa-solid fa-check"></i>Performance Optimization</li><li><i class="fa-solid fa-check"></i>Design Refreshes</li></ul><a href="#contact" class="service-action">Request a Free Quote <i class="fa-solid fa-arrow-right"></i></a></article>
+      <article class="service-card rv"><div class="service-top"><div class="service-icon"><i class="fa-solid fa-shield-halved"></i></div><div><h3 class="service-name">Website Maintenance</h3><div class="service-price">Starting at $50/month</div></div></div><p class="service-desc">Ongoing maintenance to keep your website secure, updated, and running smoothly.</p><div class="service-includes">Includes</div><ul class="service-list"><li><i class="fa-solid fa-check"></i>Content Updates</li><li><i class="fa-solid fa-check"></i>Bug Fixes</li><li><i class="fa-solid fa-check"></i>Website Monitoring</li><li><i class="fa-solid fa-check"></i>Security Updates</li><li><i class="fa-solid fa-check"></i>Technical Support</li><li><i class="fa-solid fa-check"></i>Performance Checks</li></ul><a href="#contact" class="service-action">Request a Free Quote <i class="fa-solid fa-arrow-right"></i></a></article>
+      <article class="service-card service-card--wide rv"><div class="service-top"><div class="service-icon"><i class="fa-solid fa-laptop-code"></i></div><div><h3 class="service-name">Custom Web Applications</h3><div class="service-price">Custom Quote</div></div></div><p class="service-desc">Need something beyond a traditional website? I build custom web applications and business software tailored to your specific needs.</p><div class="service-includes">Examples</div><ul class="service-list"><li><i class="fa-solid fa-check"></i>Client Dashboards</li><li><i class="fa-solid fa-check"></i>Management Systems</li><li><i class="fa-solid fa-check"></i>Business Tools</li><li><i class="fa-solid fa-check"></i>Booking Systems</li><li><i class="fa-solid fa-check"></i>Interactive Web Applications</li><li><i class="fa-solid fa-check"></i>Custom Software Solutions</li></ul><a href="#contact" class="service-action">Let's Talk <i class="fa-solid fa-arrow-right"></i></a></article>
+    </div>
+
+    <div class="why-services rv"><h3 class="services-subhead">Why Work <em>With Me?</em></h3><div class="why-grid"><article class="why-card"><div class="why-icon"><i class="fa-solid fa-mobile-screen-button"></i></div><h4>Responsive &amp; Mobile Friendly</h4><p>Every website is optimized for desktops, tablets, and smartphones.</p></article><article class="why-card"><div class="why-icon"><i class="fa-solid fa-bolt"></i></div><h4>Performance Focused</h4><p>Fast-loading websites built with clean, efficient code.</p></article><article class="why-card"><div class="why-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div><h4>Modern UI/UX Design</h4><p>Professional interfaces designed to create an engaging user experience.</p></article><article class="why-card"><div class="why-icon"><i class="fa-solid fa-handshake-angle"></i></div><h4>Personalized Support</h4><p>Clear communication and ongoing support throughout the project.</p></article></div></div>
+    <aside class="pricing-note rv"><i class="fa-solid fa-circle-info" aria-hidden="true"></i><p><strong>Pricing note:</strong> All prices listed are starting estimates. Final pricing depends on the size, features, timeline, and complexity of your project. A personalized quote will be provided after discussing your project requirements.</p></aside>
+    <section class="payment-section rv" aria-labelledby="payment-title">
+      <h3 class="payment-heading" id="payment-title"><i class="fa-solid fa-credit-card" aria-hidden="true"></i> Payment Information</h3>
+      <div class="payment-grid">
+        <article class="payment-card" data-tilt><div class="card-glow"></div><div class="payment-method"><div class="payment-icon"><i class="fa-solid fa-money-bill-transfer"></i></div><div><div class="payment-label">Accepted Payment Method</div><div class="payment-name">Zelle</div></div></div><p><strong>Taylor Software Tech Studio currently accepts payments through Zelle. Payment details will be provided after the project quote has been approved.</strong></p></article>
+        <aside class="payment-card payment-deposit" data-tilt><div class="card-glow"></div><i class="fa-solid fa-file-signature" aria-hidden="true"></i><p><strong>A 50% deposit is required before work begins. The remaining 50% is due after the project is completed and approved before final delivery or website launch.</strong></p></aside>
+      </div>
+    </section>
+    <div class="services-cta rv"><div class="cta-kicker"><i class="fa-solid fa-rocket"></i> Have a Project in Mind?</div><h3>Let's build something amazing together.</h3><p>Whether you need a professional website, custom web application, or improvements to an existing project, I'd love to help bring your ideas to life.</p><div class="services-cta-actions"><a href="#contact" class="btn-glow"><span>Start Your Project <i class="fa-solid fa-arrow-right"></i></span></a><a href="#projects" class="btn-outline">View My Portfolio</a></div></div>
+  </div>
+</section>
+
 <!-- ══════════════ TOOLS ══════════════ -->
 <section id="tools">
   <div class="wrap">
@@ -1541,10 +1661,12 @@ window.addEventListener('scroll',updateScrollBar,{passive:true});
 updateScrollBar();
 
 /* ── MAGNETIC CURSOR (desktop only) ── */
-const isMobile=/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+const coarsePointer=window.matchMedia('(hover:none), (pointer:coarse)').matches;
+const isMobile=coarsePointer||/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+const reduceMotion=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
 const dot=document.getElementById('mag-dot'),ring=document.getElementById('mag-ring');
 let mx=window.innerWidth/2,my=window.innerHeight/2,rx=mx,ry=my;
-if(!isMobile){
+if(!isMobile&&!reduceMotion){
   document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px'});
   document.addEventListener('mousedown',()=>ring.classList.add('click'));
   document.addEventListener('mouseup',()=>ring.classList.remove('click'));
@@ -1558,7 +1680,7 @@ if(!isMobile){
 }
 
 /* ── CURSOR TRAIL (desktop only) ── */
-if(!isMobile){
+if(!isMobile&&!reduceMotion){
   const TRAIL=12;
   const trail=[];
   const colors=['rgba(167,139,250,','rgba(103,232,249,','rgba(251,113,133,'];
@@ -1609,23 +1731,44 @@ function spawnRipple(card,x,y){
   card.appendChild(r);
   setTimeout(()=>r.remove(),800);
 }
-if(!isMobile){
+// Apply the portfolio's cursor-tracking glow and 3D tilt to service/payment cards.
+document.querySelectorAll('.service-card,.payment-card').forEach(card=>{
+  card.dataset.tilt='';
+  if(!card.querySelector('.card-glow')){
+    const glow=document.createElement('div');
+    glow.className='card-glow';
+    card.prepend(glow);
+  }
+});
+if(!isMobile&&!reduceMotion){
   document.querySelectorAll('[data-tilt]').forEach(card=>{
     card.addEventListener('mousemove',e=>{
       const rect=card.getBoundingClientRect();
       const cx=rect.left+rect.width/2,cy=rect.top+rect.height/2;
       const dx=(e.clientX-cx)/rect.width*2,dy=(e.clientY-cy)/rect.height*2;
-      const rotX=-dy*TILT_MAX,rotY=dx*TILT_MAX;
-      card.style.transform=`perspective(800px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(1.02)`;
+      const isServiceCard=card.matches('.service-card,.payment-card');
+      const compactViewport=window.innerWidth<1200;
+      const tilt=isServiceCard?(compactViewport?13:18):TILT_MAX;
+      const rotX=-dy*tilt,rotY=dx*tilt;
+      const perspective=isServiceCard?650:800;
+      const scale=isServiceCard?(compactViewport?1.035:1.055):1.02;
+      const lift=isServiceCard?(compactViewport?-5:-8):0;
+      card.style.transform=`perspective(${perspective}px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(${lift}px) scale(${scale})`;
+      if(isServiceCard){
+        card.style.boxShadow=`${-dx*22}px ${22+dy*10}px 75px rgba(3,1,15,.62), ${dx*10}px ${-dy*8}px 42px rgba(103,232,249,.18), 0 0 38px rgba(124,58,237,.2)`;
+      }
       const glow=card.querySelector('.card-glow');
       if(glow){
         const px=((e.clientX-rect.left)/rect.width*100).toFixed(1);
         const py=((e.clientY-rect.top)/rect.height*100).toFixed(1);
-        glow.style.background=`radial-gradient(circle at ${px}% ${py}%, rgba(167,139,250,.18) 0%, transparent 60%)`;
+        const glowStrength=isServiceCard?'.38':'.18';
+        const glowSize=isServiceCard?'52%':'60%';
+        glow.style.background=`radial-gradient(circle at ${px}% ${py}%, rgba(103,232,249,${glowStrength}) 0%, rgba(167,139,250,.2) 24%, transparent ${glowSize})`;
       }
     });
     card.addEventListener('mouseleave',()=>{
       card.style.transform='perspective(800px) rotateX(0) rotateY(0) scale(1)';
+      card.style.boxShadow='';
     });
     card.addEventListener('click',e=>{
       const rect=card.getBoundingClientRect();
@@ -1647,7 +1790,7 @@ if(!isMobile){
 }
 
 /* ── MOBILE TOUCH RIPPLE ── */
-if(isMobile){
+if(isMobile&&!reduceMotion){
   document.querySelectorAll('[data-tilt],.btn-glow,.btn-outline,.proj-link').forEach(el=>{
     el.addEventListener('touchstart',e=>{
       const touch=e.touches[0];
