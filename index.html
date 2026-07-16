@@ -513,6 +513,27 @@ footer{position:relative;z-index:10;border-top:1px solid var(--bdr);padding:2rem
 .service-card .card-glow,.payment-card .card-glow{position:absolute;inset:0;pointer-events:none;border-radius:inherit;opacity:0;transition:opacity .35s;z-index:0}
 .service-card:hover .card-glow,.payment-card:hover .card-glow{opacity:1}
 .service-card>*:not(.card-glow),.payment-card>*:not(.card-glow){position:relative;z-index:1}
+.timeline-section{margin-top:4.5rem}
+.timeline-header{text-align:center;margin-bottom:2rem}
+.timeline-header .services-subhead{margin-bottom:.55rem}
+.timeline-header p{color:var(--text2);font-size:.88rem}
+.timeline-grid{display:grid;grid-template-columns:1fr 1.25fr 1fr;gap:1.2rem;align-items:stretch}
+.timeline-card{position:relative;overflow:hidden;padding:1.75rem;border:1px solid var(--bdr);border-radius:17px;background:linear-gradient(145deg,rgba(14,7,50,.74),rgba(8,4,28,.68));-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);box-shadow:0 18px 55px rgba(0,0,0,.16);transition:transform .14s ease-out,border-color .3s,box-shadow .14s ease-out;will-change:transform,box-shadow}
+.timeline-card:hover{border-color:rgba(103,232,249,.34)}
+.timeline-card-head{display:flex;align-items:center;gap:.8rem;margin-bottom:1rem}
+.timeline-card-icon{width:42px;height:42px;display:grid;place-items:center;flex:0 0 auto;border:1px solid var(--bdrc);border-radius:11px;background:linear-gradient(135deg,rgba(124,58,237,.14),rgba(8,145,178,.1));color:var(--c);font-size:1rem}
+.timeline-card h4{font-size:1.02rem}
+.timeline-card p{color:var(--text2);font-size:.84rem;line-height:1.75}
+.rush-label{margin:1.2rem 0 .7rem;font-family:var(--fm);font-size:.59rem;letter-spacing:.14em;text-transform:uppercase;color:var(--v)}
+.rush-list{display:flex;flex-direction:column;gap:.55rem;list-style:none;margin-bottom:1.15rem}
+.rush-list li{display:flex;align-items:flex-start;gap:.55rem;color:var(--text2);font-size:.8rem;line-height:1.5}
+.rush-list li::before{content:'';width:5px;height:5px;margin-top:.48rem;flex:0 0 auto;border-radius:50%;background:var(--c);box-shadow:0 0 8px rgba(103,232,249,.5)}
+.rush-note{padding:.7rem .8rem;border-left:2px solid var(--gold);border-radius:0 6px 6px 0;background:rgba(251,191,36,.04);font-family:var(--fm);font-size:.57rem!important;line-height:1.65!important;color:var(--text3)!important}
+.timeline-assurance{display:flex;align-items:flex-start;gap:1rem;margin-top:1.2rem;padding:1.45rem 1.6rem;border:1px solid rgba(52,211,153,.22);border-radius:14px;background:linear-gradient(135deg,rgba(52,211,153,.055),rgba(8,145,178,.055));color:var(--text2);font-size:.87rem;line-height:1.75}
+.timeline-assurance i{color:var(--green);margin-top:.3rem}
+.timeline-card .card-glow{position:absolute;inset:0;pointer-events:none;border-radius:inherit;opacity:0;transition:opacity .35s;z-index:0}
+.timeline-card:hover .card-glow{opacity:1}
+.timeline-card>*:not(.card-glow){position:relative;z-index:1}
 .services-cta{position:relative;overflow:hidden;text-align:center;margin-top:4.5rem;padding:3.5rem 2rem;border:1px solid rgba(167,139,250,.3);border-radius:22px;background:radial-gradient(circle at 50% 0,rgba(103,232,249,.12),transparent 42%),linear-gradient(135deg,rgba(124,58,237,.18),rgba(8,145,178,.1));box-shadow:0 28px 90px rgba(3,1,15,.35)}
 .services-cta h3{font-family:var(--fs);font-size:clamp(2rem,4vw,3.1rem);font-weight:400;margin-bottom:.55rem}
 .services-cta .cta-kicker{color:var(--c);font-family:var(--fm);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.8rem}
@@ -579,6 +600,7 @@ footer{position:relative;z-index:10;border-top:1px solid var(--bdr);padding:2rem
   .nav-links{display:none}
   .nav-burger{display:flex}
   .why-grid{grid-template-columns:repeat(2,1fr)}
+  .timeline-grid{grid-template-columns:1fr}
 }
 /* TABLET */
 @media(max-width:768px){
@@ -635,6 +657,8 @@ footer{position:relative;z-index:10;border-top:1px solid var(--bdr);padding:2rem
   .services-cta-actions{flex-direction:column}
   .pricing-note{padding:1.2rem}
   .payment-card{padding:1.35rem}
+  .timeline-card{padding:1.4rem}
+  .timeline-assurance{padding:1.2rem}
 }
 @media(max-width:420px){
   .nav-burger{width:42px;height:42px;padding:9px;
@@ -1242,6 +1266,18 @@ footer{position:relative;z-index:10;border-top:1px solid var(--bdr);padding:2rem
         <aside class="payment-card payment-deposit" data-tilt><div class="card-glow"></div><i class="fa-solid fa-file-signature" aria-hidden="true"></i><p><strong>A 50% deposit is required before work begins. The remaining 50% is due after the project is completed and approved before final delivery or website launch.</strong></p></aside>
       </div>
     </section>
+    <section class="timeline-section rv" aria-labelledby="timeline-title">
+      <header class="timeline-header">
+        <h3 class="services-subhead" id="timeline-title">Project Timeline &amp; <em>Rush Delivery</em></h3>
+        <p>Clear expectations, flexible options, and a timeline tailored to your project.</p>
+      </header>
+      <div class="timeline-grid">
+        <article class="timeline-card" data-tilt><div class="card-glow"></div><div class="timeline-card-head"><div class="timeline-card-icon"><i class="fa-regular fa-calendar-check"></i></div><h4>Project Timeline</h4></div><p>Every project begins with a free consultation where we'll discuss your goals, project requirements, preferred completion date, and estimated timeline. After our consultation, you'll receive a personalized quote and estimated delivery date.</p></article>
+        <article class="timeline-card" data-tilt><div class="card-glow"></div><div class="timeline-card-head"><div class="timeline-card-icon"><i class="fa-solid fa-bolt"></i></div><h4>Rush Delivery</h4></div><p>If you need your project completed sooner than the standard timeline, rush delivery may be available depending on my current availability and project schedule.</p><div class="rush-label">Estimated Rush Fees</div><ul class="rush-list"><li>Portfolio Website (+$75–100)</li><li>Custom Website Development (+$100–150)</li><li>Professional Business Website (+$150–300)</li><li>Website Updates &amp; Improvements (+$25–50)</li><li>Custom Web Applications (Rush pricing determined after consultation.)</li></ul><p class="rush-note">Rush fees are added to the standard project price and are based on the requested deadline, project size, and overall complexity.</p></article>
+        <article class="timeline-card" data-tilt><div class="card-glow"></div><div class="timeline-card-head"><div class="timeline-card-icon"><i class="fa-regular fa-comments"></i></div><h4>Flexible Pricing</h4></div><p>Every project is unique. If you have a specific budget, feel free to reach out. I'm happy to discuss your goals and provide a personalized quote whenever possible.</p></article>
+      </div>
+      <aside class="timeline-assurance"><i class="fa-solid fa-clipboard-check" aria-hidden="true"></i><p>Before development begins, every client will receive a personalized quote, project timeline, expected completion date, payment schedule, and scope of work. This ensures clear communication and expectations for both Taylor Software Tech Studio and the client.</p></aside>
+    </section>
     <div class="services-cta rv"><div class="cta-kicker"><i class="fa-solid fa-rocket"></i> Have a Project in Mind?</div><h3>Let's build something amazing together.</h3><p>Whether you need a professional website, custom web application, or improvements to an existing project, I'd love to help bring your ideas to life.</p><div class="services-cta-actions"><a href="#contact" class="btn-glow"><span>Start Your Project <i class="fa-solid fa-arrow-right"></i></span></a><a href="#projects" class="btn-outline">View My Portfolio</a></div></div>
   </div>
 </section>
@@ -1733,7 +1769,7 @@ function spawnRipple(card,x,y){
   setTimeout(()=>r.remove(),800);
 }
 // Apply the portfolio's cursor-tracking glow and 3D tilt to service/payment cards.
-document.querySelectorAll('.service-card,.payment-card').forEach(card=>{
+document.querySelectorAll('.service-card,.payment-card,.timeline-card').forEach(card=>{
   card.dataset.tilt='';
   if(!card.querySelector('.card-glow')){
     const glow=document.createElement('div');
@@ -1747,7 +1783,7 @@ if(!isMobile&&!reduceMotion){
       const rect=card.getBoundingClientRect();
       const cx=rect.left+rect.width/2,cy=rect.top+rect.height/2;
       const dx=(e.clientX-cx)/rect.width*2,dy=(e.clientY-cy)/rect.height*2;
-      const isServiceCard=card.matches('.service-card,.payment-card');
+      const isServiceCard=card.matches('.service-card,.payment-card,.timeline-card');
       const compactViewport=window.innerWidth<1200;
       const tilt=isServiceCard?(compactViewport?13:18):TILT_MAX;
       const rotX=-dy*tilt,rotY=dx*tilt;
