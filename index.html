@@ -584,6 +584,29 @@ footer{position:relative;z-index:10;border-top:1px solid var(--bdr);padding:2rem
 @keyframes ctaPulse{50%{box-shadow:0 12px 42px rgba(124,58,237,.48);transform:translateY(-2px)}}
 
 /* ══════════════════════════════════════════
+   STUDENT DISCOUNTS
+══════════════════════════════════════════ */
+#student-discounts{position:relative;overflow:hidden;background:linear-gradient(180deg,transparent,rgba(6,21,43,.58),transparent)}
+#student-discounts::before{content:'';position:absolute;width:560px;height:560px;top:5%;left:-20%;border-radius:50%;background:linear-gradient(135deg,var(--c2),var(--v2));filter:blur(100px);opacity:.12;pointer-events:none}
+.student-head{text-align:center;max-width:860px;margin:0 auto 3.2rem}
+.student-head .lead{margin:.9rem auto 1.15rem;color:var(--c)}
+.student-intro{max-width:780px;margin:0 auto;color:var(--text2);font-size:.94rem;line-height:1.85}
+.student-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.2rem}
+.student-card{position:relative;overflow:hidden;display:flex;flex-direction:column;min-height:315px;padding:2rem;border:1px solid rgba(103,232,249,.16);border-radius:20px;background:linear-gradient(145deg,rgba(14,7,50,.76),rgba(5,18,39,.68));-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);box-shadow:0 22px 65px rgba(0,0,0,.2);transition:transform .32s ease,border-color .32s ease,box-shadow .32s ease}
+.student-card::before{content:'';position:absolute;inset:0 0 auto;height:1px;background:linear-gradient(90deg,transparent,var(--c),var(--v),transparent);opacity:.72}
+.student-card:hover{transform:translateY(-8px);border-color:rgba(103,232,249,.42);box-shadow:0 30px 80px rgba(3,1,15,.42),0 0 38px rgba(8,145,178,.1)}
+.student-icon{width:54px;height:54px;display:grid;place-items:center;margin-bottom:1.5rem;border:1px solid rgba(103,232,249,.25);border-radius:15px;background:linear-gradient(135deg,rgba(8,145,178,.18),rgba(124,58,237,.16));color:var(--c);font-size:1.25rem;box-shadow:inset 0 1px rgba(255,255,255,.06),0 12px 30px rgba(8,145,178,.1)}
+.student-card h3{font-size:1.18rem;margin-bottom:.55rem}
+.student-price{margin-bottom:1.25rem;color:var(--c);font-family:var(--fm);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase}
+.student-card p{color:var(--text2);font-size:.89rem;line-height:1.8}
+.student-verification{display:flex;align-items:flex-start;gap:1rem;max-width:900px;margin:2rem auto 0;padding:1.5rem 1.65rem;border:1px solid rgba(52,211,153,.24);border-radius:16px;background:linear-gradient(135deg,rgba(52,211,153,.065),rgba(8,145,178,.07));-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);box-shadow:0 18px 50px rgba(0,0,0,.14)}
+.student-verification i{flex:0 0 auto;margin-top:.2rem;color:var(--green);font-size:1.15rem}
+.student-verification p{color:var(--text2);font-size:.88rem;line-height:1.75}
+.student-note{max-width:780px;margin:1.15rem auto 0;text-align:center;color:var(--text3);font-family:var(--fm);font-size:.62rem;line-height:1.7;letter-spacing:.025em}
+.student-cta{display:flex;justify-content:center;margin-top:2rem}
+.student-cta .btn-glow{animation:ctaPulse 2.8s ease-in-out infinite}
+
+/* ══════════════════════════════════════════
    CREDENTIALS GRID
 ══════════════════════════════════════════ */
 .sk-cat-creds{grid-column:1/-1}
@@ -641,6 +664,7 @@ footer{position:relative;z-index:10;border-top:1px solid var(--bdr);padding:2rem
   .nav-burger{display:flex}
   .why-grid{grid-template-columns:repeat(2,1fr)}
   .timeline-grid{grid-template-columns:1fr}
+  .student-grid{grid-template-columns:1fr}
 }
 /* TABLET */
 @media(max-width:768px){
@@ -706,6 +730,8 @@ footer{position:relative;z-index:10;border-top:1px solid var(--bdr);padding:2rem
   .payment-card{padding:1.35rem}
   .timeline-card{padding:1.4rem}
   .timeline-assurance{padding:1.2rem}
+  .student-card{min-height:0;padding:1.5rem}
+  .student-verification{padding:1.2rem}
 }
 @media(max-width:420px){
   .nav-burger{width:42px;height:42px;padding:9px;
@@ -1237,6 +1263,47 @@ footer{position:relative;z-index:10;border-top:1px solid var(--bdr);padding:2rem
   </div>
 </section>
 
+<!-- ══════════════ STUDENT DISCOUNTS ══════════════ -->
+<section id="student-discounts" aria-labelledby="student-discounts-title">
+  <div class="wrap">
+    <header class="student-head rv">
+      <div class="services-badge"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> Exclusive Student Pricing</div>
+      <span class="section-label">Taylor Software Tech Studio</span>
+      <h2 class="display" id="student-discounts-title">🎓 Student <em>Discounts</em></h2>
+      <p class="lead">Helping students build their future.</p>
+      <p class="student-intro">Taylor Software Tech Studio proudly offers exclusive discounts for verified college students looking to build a professional online presence.<br><br>Whether you're applying for internships, building your portfolio, creating a personal website, or launching a student business, we're here to help you stand out with a professionally designed website at student-friendly pricing.</p>
+    </header>
+
+    <div class="student-grid">
+      <article class="student-card rv">
+        <div class="student-icon"><i class="fa-solid fa-briefcase" aria-hidden="true"></i></div>
+        <h3>Portfolio Website</h3>
+        <div class="student-price">Starting at $175</div>
+        <p>Perfect for internship applications, resumes, GitHub projects, and showcasing your skills professionally.</p>
+      </article>
+      <article class="student-card rv">
+        <div class="student-icon"><i class="fa-solid fa-user" aria-hidden="true"></i></div>
+        <h3>Personal Website</h3>
+        <div class="student-price">Starting at $250</div>
+        <p>Build your personal brand with a modern website that highlights who you are and what you do.</p>
+      </article>
+      <article class="student-card rv">
+        <div class="student-icon"><i class="fa-solid fa-rocket" aria-hidden="true"></i></div>
+        <h3>Student Business Website</h3>
+        <div class="student-price">Starting at $550</div>
+        <p>Designed for student entrepreneurs who want a professional online presence to help grow their business.</p>
+      </article>
+    </div>
+
+    <aside class="student-verification rv">
+      <i class="fa-solid fa-shield-circle-check" aria-hidden="true"></i>
+      <p><strong>Student discounts are exclusively available to verified college students.</strong> Verification is required using a valid college email address or current student ID.</p>
+    </aside>
+    <p class="student-note rv">These discounted prices are available only to verified college students. Standard pricing applies to all other clients.</p>
+    <div class="student-cta rv"><a href="#contact" class="btn-glow"><span>Claim Your Student Discount <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a></div>
+  </div>
+</section>
+
 <!-- ══════════════ TOOLS ══════════════ -->
 <section id="tools">
   <div class="wrap">
@@ -1579,7 +1646,7 @@ footer{position:relative;z-index:10;border-top:1px solid var(--bdr);padding:2rem
 
 <!-- FOOTER -->
 <footer>
-  <div class="foot-l">Designed &amp; built by <span>Taylor</span> · Langston University CS · 2025</div>
+  <div class="foot-l">Designed &amp; built by <span>Taylor</span> · Langston University CS · 2026</div>
   <div class="foot-r"><a href="#hero">Back to top ↑</a></div>
 </footer>
 <div class="portfolio-note">
