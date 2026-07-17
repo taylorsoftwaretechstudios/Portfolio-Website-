@@ -607,6 +607,45 @@ footer{position:relative;z-index:10;border-top:1px solid var(--bdr);padding:2rem
 .student-cta .btn-glow{animation:ctaPulse 2.8s ease-in-out infinite}
 
 /* ══════════════════════════════════════════
+   CLIENT TESTIMONIALS
+══════════════════════════════════════════ */
+#testimonials{position:relative;overflow:hidden;background:linear-gradient(180deg,transparent,rgba(8,3,30,.5),transparent)}
+.testimonial-head,.faq-head{text-align:center;max-width:850px;margin:0 auto 3.2rem}
+.testimonial-head .lead,.faq-head .lead{max-width:720px;margin:.9rem auto 0}
+.testimonial-featured{position:relative;overflow:hidden;max-width:980px;margin:0 auto;padding:clamp(2rem,5vw,3.5rem);border:1px solid rgba(103,232,249,.22);border-radius:24px;background:radial-gradient(circle at 100% 0,rgba(103,232,249,.1),transparent 30%),linear-gradient(145deg,rgba(14,7,50,.8),rgba(5,18,39,.7));-webkit-backdrop-filter:blur(22px);backdrop-filter:blur(22px);box-shadow:0 30px 90px rgba(0,0,0,.28),0 0 42px rgba(8,145,178,.06);transition:transform .35s ease,border-color .35s ease,box-shadow .35s ease}
+.testimonial-featured:hover{transform:translateY(-6px);border-color:rgba(103,232,249,.4);box-shadow:0 38px 100px rgba(0,0,0,.38),0 0 52px rgba(8,145,178,.11)}
+.testimonial-quote-mark{position:absolute;top:-1.4rem;right:2rem;color:rgba(103,232,249,.065);font-family:Georgia,serif;font-size:13rem;line-height:1;pointer-events:none}
+.testimonial-stars{display:flex;gap:.32rem;margin-bottom:1.6rem;color:var(--gold);font-size:.9rem;filter:drop-shadow(0 0 8px rgba(251,191,36,.22))}
+.testimonial-copy{position:relative;z-index:1;color:var(--text2);font-size:clamp(.95rem,1.8vw,1.08rem);line-height:1.9}
+.testimonial-copy p+p{margin-top:1rem}
+.testimonial-client{position:relative;z-index:1;display:flex;align-items:center;gap:1rem;margin-top:2.2rem;padding-top:1.7rem;border-top:1px solid var(--bdr)}
+.testimonial-avatar{width:58px;height:58px;display:grid;place-items:center;flex:0 0 auto;border:1px solid rgba(103,232,249,.28);border-radius:50%;background:linear-gradient(135deg,rgba(8,145,178,.2),rgba(124,58,237,.2));color:var(--c);font-size:1.25rem;box-shadow:0 0 25px rgba(103,232,249,.1)}
+.testimonial-client-info{display:flex;flex-direction:column;gap:.28rem}
+.testimonial-client-name{font-size:1rem;font-weight:700}
+.testimonial-business{color:var(--text3);font-size:.8rem}
+.verified-badge{display:inline-flex;align-items:center;gap:.35rem;width:max-content;margin-top:.2rem;padding:.23rem .58rem;border:1px solid rgba(52,211,153,.25);border-radius:999px;background:rgba(52,211,153,.07);color:var(--green);font-family:var(--fm);font-size:.55rem;letter-spacing:.07em;text-transform:uppercase}
+.testimonial-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));max-width:980px;margin:1.2rem auto 0;border:1px solid var(--bdr);border-radius:16px;background:rgba(10,5,35,.55);overflow:hidden}
+.testimonial-stat{display:flex;align-items:center;justify-content:center;gap:.55rem;min-height:82px;padding:1rem;text-align:center;color:var(--text2);font-size:.78rem;border-right:1px solid var(--bdr)}
+.testimonial-stat:last-child{border-right:0}.testimonial-stat i{color:var(--c)}.testimonial-stat:first-child i{color:var(--gold)}
+.testimonial-cta{display:flex;justify-content:center;margin-top:2.2rem}
+
+/* ══════════════════════════════════════════
+   FAQ
+══════════════════════════════════════════ */
+#faq{position:relative;overflow:hidden;background:linear-gradient(180deg,transparent,rgba(6,21,43,.55),transparent)}
+.faq-list{display:grid;gap:.85rem;max-width:920px;margin:0 auto}
+.faq-item{overflow:hidden;border:1px solid var(--bdr);border-radius:16px;background:linear-gradient(145deg,rgba(14,7,50,.72),rgba(5,18,39,.64));-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);box-shadow:0 15px 42px rgba(0,0,0,.14);transition:border-color .3s ease,box-shadow .3s ease,transform .3s ease}
+.faq-item:hover,.faq-item.open{border-color:rgba(103,232,249,.32);box-shadow:0 20px 55px rgba(0,0,0,.25),0 0 28px rgba(8,145,178,.07)}
+.faq-question{display:flex;align-items:center;justify-content:space-between;gap:1rem;width:100%;padding:1.35rem 1.5rem;border:0;background:transparent;color:var(--text);font:inherit;font-size:.96rem;font-weight:600;text-align:left;cursor:pointer}
+.faq-question:focus-visible{outline:2px solid var(--c);outline-offset:-4px;border-radius:14px}
+.faq-toggle{width:34px;height:34px;display:grid;place-items:center;flex:0 0 auto;border:1px solid var(--bdrc);border-radius:10px;background:rgba(103,232,249,.06);color:var(--c);transition:transform .35s ease,background .35s ease}
+.faq-item.open .faq-toggle{transform:rotate(45deg);background:linear-gradient(135deg,var(--v2),var(--c2));color:#fff}
+.faq-answer{display:grid;grid-template-rows:0fr;transition:grid-template-rows .42s ease}
+.faq-item.open .faq-answer{grid-template-rows:1fr}
+.faq-answer-inner{overflow:hidden}
+.faq-answer p{padding:0 4.5rem 1.5rem 1.5rem;color:var(--text2);font-size:.88rem;line-height:1.82}
+
+/* ══════════════════════════════════════════
    CREDENTIALS GRID
 ══════════════════════════════════════════ */
 .sk-cat-creds{grid-column:1/-1}
@@ -665,6 +704,9 @@ footer{position:relative;z-index:10;border-top:1px solid var(--bdr);padding:2rem
   .why-grid{grid-template-columns:repeat(2,1fr)}
   .timeline-grid{grid-template-columns:1fr}
   .student-grid{grid-template-columns:1fr}
+  .testimonial-stats{grid-template-columns:repeat(2,1fr)}
+  .testimonial-stat:nth-child(2){border-right:0}
+  .testimonial-stat:nth-child(-n+2){border-bottom:1px solid var(--bdr)}
 }
 /* TABLET */
 @media(max-width:768px){
@@ -732,6 +774,12 @@ footer{position:relative;z-index:10;border-top:1px solid var(--bdr);padding:2rem
   .timeline-assurance{padding:1.2rem}
   .student-card{min-height:0;padding:1.5rem}
   .student-verification{padding:1.2rem}
+  .testimonial-client{align-items:flex-start}
+  .testimonial-stats{grid-template-columns:1fr}
+  .testimonial-stat{border-right:0;border-bottom:1px solid var(--bdr)}
+  .testimonial-stat:last-child{border-bottom:0}
+  .faq-question{padding:1.15rem;font-size:.9rem}
+  .faq-answer p{padding:0 1.15rem 1.25rem}
 }
 @media(max-width:420px){
   .nav-burger{width:42px;height:42px;padding:9px;
@@ -1301,6 +1349,63 @@ footer{position:relative;z-index:10;border-top:1px solid var(--bdr);padding:2rem
     </aside>
     <p class="student-note rv">These discounted prices are available only to verified college students. Standard pricing applies to all other clients.</p>
     <div class="student-cta rv"><a href="#contact" class="btn-glow"><span>Claim Your Student Discount <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a></div>
+  </div>
+</section>
+
+<!-- ══════════════ CLIENT TESTIMONIALS ══════════════ -->
+<section id="testimonials" aria-labelledby="testimonials-title">
+  <div class="wrap">
+    <header class="testimonial-head rv">
+      <div class="services-badge"><i class="fa-solid fa-heart" aria-hidden="true"></i> Client Experience</div>
+      <span class="section-label">Real Results</span>
+      <h2 class="display" id="testimonials-title">Client <em>Testimonials</em></h2>
+      <p class="lead">Trusted by clients who value quality, professionalism, and modern software solutions.</p>
+    </header>
+
+    <article class="testimonial-featured rv">
+      <div class="testimonial-quote-mark" aria-hidden="true">“</div>
+      <div class="testimonial-stars" aria-label="Five out of five stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+      <blockquote class="testimonial-copy">
+        <p>“Working with Taylor Software Tech Studio was an incredible experience. From the beginning of the project, Taylor took the time to understand our vision and transformed it into a beautiful, professional website that exceeded our expectations. The attention to detail, communication, creativity, and technical expertise throughout the entire process made everything smooth and stress-free.</p>
+        <p>The final website turned out exactly how we envisioned it, and we couldn't be happier with the results. We are extremely proud of our new online presence and truly appreciate the professionalism shown from start to finish.</p>
+        <p>We would confidently recommend Taylor Software Tech Studio to anyone looking for a high-quality website or custom software project.”</p>
+      </blockquote>
+      <div class="testimonial-client">
+        <div class="testimonial-avatar" aria-hidden="true"><i class="fa-solid fa-heart-pulse"></i></div>
+        <div class="testimonial-client-info"><div class="testimonial-client-name">Haven of Healing Counseling &amp; Wellness</div><div class="testimonial-business">Counseling &amp; Wellness Practice</div><span class="verified-badge"><i class="fa-solid fa-circle-check"></i> Verified Client</span></div>
+      </div>
+    </article>
+
+    <div class="testimonial-stats rv" aria-label="Client service highlights">
+      <div class="testimonial-stat"><i class="fa-solid fa-star"></i><span>★★★★★ Client Satisfaction</span></div>
+      <div class="testimonial-stat"><i class="fa-solid fa-mobile-screen-button"></i><span>100% Responsive Design</span></div>
+      <div class="testimonial-stat"><i class="fa-solid fa-code"></i><span>Professional Development</span></div>
+      <div class="testimonial-stat"><i class="fa-solid fa-headset"></i><span>Ongoing Support Available</span></div>
+    </div>
+    <div class="testimonial-cta rv"><a href="#contact" class="btn-glow"><span>Start Your Project <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a></div>
+  </div>
+</section>
+
+<!-- ══════════════ FREQUENTLY ASKED QUESTIONS ══════════════ -->
+<section id="faq" aria-labelledby="faq-title">
+  <div class="wrap">
+    <header class="faq-head rv">
+      <div class="services-badge"><i class="fa-solid fa-circle-question" aria-hidden="true"></i> Project FAQ</div>
+      <span class="section-label">Before We Begin</span>
+      <h2 class="display" id="faq-title">Frequently Asked <em>Questions</em></h2>
+      <p class="lead">Everything you need to know before starting your project.</p>
+    </header>
+    <div class="faq-list">
+      <article class="faq-item rv"><h3><button class="faq-question" type="button" aria-expanded="false"><span>How long does a website take to build?</span><span class="faq-toggle" aria-hidden="true"><i class="fa-solid fa-plus"></i></span></button></h3><div class="faq-answer"><div class="faq-answer-inner"><p>Every project is different depending on its size and complexity. I always strive to complete projects as efficiently as possible without sacrificing quality. During our consultation, we'll discuss your project requirements, timeline, and expected delivery date to ensure we're on the same page from start to finish.</p></div></div></article>
+      <article class="faq-item rv"><h3><button class="faq-question" type="button" aria-expanded="false"><span>Do you redesign existing websites?</span><span class="faq-toggle" aria-hidden="true"><i class="fa-solid fa-plus"></i></span></button></h3><div class="faq-answer"><div class="faq-answer-inner"><p>Yes! I specialize in redesigning outdated websites and transforming them into modern, responsive, and professional websites. Whether your goal is improving the design, performance, user experience, or functionality, I'll work with you to create a website that better represents your brand.</p></div></div></article>
+      <article class="faq-item rv"><h3><button class="faq-question" type="button" aria-expanded="false"><span>Do you offer website maintenance?</span><span class="faq-toggle" aria-hidden="true"><i class="fa-solid fa-plus"></i></span></button></h3><div class="faq-answer"><div class="faq-answer-inner"><p>Absolutely. Website maintenance services are available for clients who would like ongoing updates, security improvements, bug fixes, content changes, and general website support. Maintenance plans are offered for a small monthly fee based on your website's needs.</p></div></div></article>
+      <article class="faq-item rv"><h3><button class="faq-question" type="button" aria-expanded="false"><span>Do you build custom software?</span><span class="faq-toggle" aria-hidden="true"><i class="fa-solid fa-plus"></i></span></button></h3><div class="faq-answer"><div class="faq-answer-inner"><p>Yes. In addition to websites, I develop custom software solutions tailored to your specific business needs. This includes web applications, dashboards, business management systems, custom tools, automation solutions, and other software designed to improve productivity and streamline operations.</p></div></div></article>
+      <article class="faq-item rv"><h3><button class="faq-question" type="button" aria-expanded="false"><span>Can I use my own domain?</span><span class="faq-toggle" aria-hidden="true"><i class="fa-solid fa-plus"></i></span></button></h3><div class="faq-answer"><div class="faq-answer-inner"><p>Of course. If you already own a domain name, I'm happy to build your website using it. During development, I may need temporary access to your domain settings so I can properly connect your website, configure DNS records if necessary, and ensure everything is deployed correctly and securely.</p></div></div></article>
+      <article class="faq-item rv"><h3><button class="faq-question" type="button" aria-expanded="false"><span>How does payment work?</span><span class="faq-toggle" aria-hidden="true"><i class="fa-solid fa-plus"></i></span></button></h3><div class="faq-answer"><div class="faq-answer-inner"><p>A 50% deposit is required before development begins to reserve your project and start the design and development process. The remaining 50% is due upon project completion before the final website is transferred or launched. All payments are securely accepted through Zelle.</p></div></div></article>
+      <article class="faq-item rv"><h3><button class="faq-question" type="button" aria-expanded="false"><span>Will my website work on phones and tablets?</span><span class="faq-toggle" aria-hidden="true"><i class="fa-solid fa-plus"></i></span></button></h3><div class="faq-answer"><div class="faq-answer-inner"><p>Yes. Every website is built with a responsive design to ensure it looks and performs great across desktops, tablets, and mobile devices.</p></div></div></article>
+      <article class="faq-item rv"><h3><button class="faq-question" type="button" aria-expanded="false"><span>Do you help launch my website?</span><span class="faq-toggle" aria-hidden="true"><i class="fa-solid fa-plus"></i></span></button></h3><div class="faq-answer"><div class="faq-answer-inner"><p>Yes. Once your project is complete, I'll assist with deployment, connecting your domain, testing functionality, and making sure your website is live and ready for visitors.</p></div></div></article>
+      <article class="faq-item rv"><h3><button class="faq-question" type="button" aria-expanded="false"><span>Can I request future updates?</span><span class="faq-toggle" aria-hidden="true"><i class="fa-solid fa-plus"></i></span></button></h3><div class="faq-answer"><div class="faq-answer-inner"><p>Absolutely. Whether you need new pages, design improvements, feature additions, or general updates after launch, I'm available to continue supporting your website whenever you need assistance.</p></div></div></article>
+    </div>
   </div>
 </section>
 
@@ -1997,6 +2102,22 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     burger.classList.remove('open');drawer.classList.remove('open');document.body.style.overflow='';
     const offset=navEl.offsetHeight+8;
     window.scrollTo({top:target.getBoundingClientRect().top+window.scrollY-offset,behavior:'smooth'});
+  });
+});
+
+/* ── FAQ ACCORDION ── */
+document.querySelectorAll('.faq-question').forEach(button=>{
+  button.addEventListener('click',()=>{
+    const item=button.closest('.faq-item');
+    const isOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(openItem=>{
+      openItem.classList.remove('open');
+      openItem.querySelector('.faq-question').setAttribute('aria-expanded','false');
+    });
+    if(!isOpen){
+      item.classList.add('open');
+      button.setAttribute('aria-expanded','true');
+    }
   });
 });
 
