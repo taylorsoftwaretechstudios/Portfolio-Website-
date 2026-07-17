@@ -133,10 +133,35 @@ section{position:relative;z-index:10}
 .h-orb{position:absolute;border-radius:50%;pointer-events:none;filter:blur(80px)}
 .hero-orb-left{width:700px;height:700px;top:-20%;left:-10%;background:radial-gradient(ellipse,rgba(124,58,237,.14) 0%,transparent 70%)}
 .hero-orb-right{width:500px;height:500px;bottom:-5%;right:0%;background:radial-gradient(ellipse,rgba(8,145,178,.1) 0%,transparent 70%)}
+.hero-float{position:absolute;z-index:1;border-radius:50%;filter:blur(75px);pointer-events:none;animation:heroFloat 9s ease-in-out infinite alternate}
+.hero-float-one{width:300px;height:300px;top:12%;right:12%;background:rgba(37,99,235,.13)}
+.hero-float-two{width:240px;height:240px;bottom:8%;left:30%;background:rgba(124,58,237,.11);animation-delay:-4s}
+.hero-code{position:absolute;z-index:2;width:260px;padding:1rem;border:1px solid rgba(103,232,249,.13);border-radius:12px;background:rgba(5,12,31,.46);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);color:rgba(103,232,249,.38);font-family:var(--fm);font-size:.6rem;line-height:1.8;box-shadow:0 0 35px rgba(8,145,178,.06);pointer-events:none;animation:codeDrift 7s ease-in-out infinite}
+.hero-code-one{top:22%;right:8%;transform:rotate(3deg)}
+.hero-code-two{right:20%;bottom:14%;transform:rotate(-4deg);animation-delay:-3.5s}
+.hero-typing{display:flex;align-items:center;min-height:2rem;margin:-1rem 0 1.35rem;color:var(--c);font-family:var(--fm);font-size:clamp(.76rem,1.5vw,.94rem);letter-spacing:.06em;opacity:0;animation:fadeUp .7s .65s forwards}
+.typing-cursor{width:2px;height:1.2em;margin-left:.35rem;background:var(--c);box-shadow:0 0 10px var(--c);animation:cursorBlink .8s steps(1) infinite}
+.hero-tagline{max-width:700px!important}
+.hero-mini-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));max-width:720px;margin:2.5rem 0 0;border:1px solid var(--bdr);border-radius:14px;background:rgba(5,12,31,.48);-webkit-backdrop-filter:blur(15px);backdrop-filter:blur(15px);overflow:hidden;opacity:0;animation:fadeUp .7s 1.05s forwards}
+.hero-mini-stat{padding:1rem;border-right:1px solid var(--bdr)}.hero-mini-stat:last-child{border-right:0}
+.hero-mini-value{display:block;margin-bottom:.32rem;color:var(--c);font-family:var(--fh);font-size:1.45rem;font-weight:800}.hero-mini-label{display:block;color:var(--text3);font-family:var(--fm);font-size:.52rem;letter-spacing:.1em;text-transform:uppercase}
+@keyframes heroFloat{to{transform:translate3d(25px,-30px,0) scale(1.12)}}
+@keyframes codeDrift{50%{transform:translateY(-16px) rotate(0deg);border-color:rgba(103,232,249,.25);box-shadow:0 0 45px rgba(8,145,178,.12)}}
+@keyframes cursorBlink{50%{opacity:0}}
 /* scroll cue */
 .scroll-cue{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;z-index:5;opacity:0;animation:fadeIn 1s 1.6s forwards}
 .scroll-cue-line{width:1px;height:48px;background:linear-gradient(to bottom,var(--v),transparent);animation:scrollDrop 2s 2s infinite}
 .scroll-cue-txt{font-family:var(--fm);font-size:.6rem;color:var(--text2);letter-spacing:.2em;text-transform:uppercase}
+
+/* company statistics */
+#company-stats{padding:0;background:linear-gradient(180deg,rgba(6,21,43,.15),transparent)}
+#company-stats .wrap{padding-top:4rem;padding-bottom:4rem}
+.company-stat-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.company-stat-card{position:relative;overflow:hidden;padding:1.65rem;border:1px solid var(--bdr);border-radius:16px;background:linear-gradient(145deg,rgba(14,7,50,.72),rgba(5,18,39,.68));box-shadow:0 18px 50px rgba(0,0,0,.17);transition:transform .3s,border-color .3s,box-shadow .3s}
+.company-stat-card::before{content:'';position:absolute;inset:0 0 auto;height:1px;background:linear-gradient(90deg,transparent,var(--c),transparent);opacity:.55}
+.company-stat-card:hover{transform:translateY(-6px);border-color:rgba(103,232,249,.36);box-shadow:0 26px 70px rgba(0,0,0,.3),0 0 30px rgba(8,145,178,.08)}
+.company-stat-icon{width:42px;height:42px;display:grid;place-items:center;margin-bottom:1.1rem;border:1px solid var(--bdrc);border-radius:11px;background:rgba(103,232,249,.06);color:var(--c)}
+.company-stat-value{font-family:var(--fh);font-size:2rem;font-weight:900;color:var(--text);line-height:1;margin-bottom:.45rem}.company-stat-label{color:var(--text2);font-family:var(--fm);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase}
 
 /* ══════════════════════════════════════════
    ABOUT
@@ -448,11 +473,11 @@ section{position:relative;z-index:10}
 /* ══════════════════════════════════════════
    FOOTER
 ══════════════════════════════════════════ */
-footer{position:relative;z-index:10;border-top:1px solid var(--bdr);padding:2rem max(2rem,5vw);display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
-.foot-l{font-family:var(--fm);font-size:.64rem;color:var(--text2);letter-spacing:.1em}
-.foot-l span{color:var(--c)}
-.foot-r a{font-family:var(--fm);font-size:.64rem;color:var(--text2);text-decoration:none;letter-spacing:.08em;transition:color .2s}
-.foot-r a:hover{color:var(--v)}
+footer.site-footer{position:relative;z-index:10;overflow:hidden;border-top:1px solid rgba(103,232,249,.15);padding:0;background:radial-gradient(circle at 15% 0,rgba(124,58,237,.13),transparent 30%),linear-gradient(180deg,rgba(8,4,28,.82),rgba(3,1,15,.96))}
+.footer-main{display:grid;grid-template-columns:1.35fr 1fr;gap:4rem;padding:4.5rem max(2rem,5vw) 3rem}
+.footer-brand{max-width:470px}.footer-logo{display:flex;align-items:center;gap:.8rem;margin-bottom:1.1rem}.footer-logo strong{font-family:var(--fm);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase}.footer-brand p{color:var(--text2);font-size:.88rem;line-height:1.8}
+.footer-nav-title{margin-bottom:.8rem;color:var(--c);font-family:var(--fm);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase}.footer-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem 2rem}.footer-links a{display:flex;align-items:center;gap:.55rem;padding:.65rem .8rem;border:1px solid transparent;border-radius:8px;color:var(--text2);font-family:var(--fm);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:color .25s,background .25s,border-color .25s,transform .25s}.footer-links a:hover{transform:translateX(4px);border-color:var(--bdr);background:rgba(103,232,249,.045);color:var(--c)}.footer-links i{width:16px;color:var(--c);text-align:center}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.4rem max(2rem,5vw);border-top:1px solid var(--bdr);color:var(--text3);font-family:var(--fm);font-size:.62rem;letter-spacing:.08em}.footer-bottom a{color:var(--text2);text-decoration:none;transition:color .2s}.footer-bottom a:hover{color:var(--c)}
 /* portfolio note */
 .portfolio-note{position:relative;z-index:10;display:flex;align-items:flex-start;gap:.9rem;padding:1rem max(2rem,5vw) 1.5rem;border-top:1px solid rgba(167,139,250,.08)}
 .pn-icon{font-size:1rem;flex-shrink:0;margin-top:.1rem;opacity:.7}
@@ -501,6 +526,17 @@ footer{position:relative;z-index:10;border-top:1px solid var(--bdr);padding:2rem
 .portfolio-coming .portfolio-desc{margin-bottom:0}
 .portfolio-card .card-glow{position:absolute;inset:0;pointer-events:none;border-radius:inherit;opacity:0;transition:opacity .35s;z-index:0}.portfolio-card:hover .card-glow{opacity:1}.portfolio-card>*:not(.card-glow){position:relative;z-index:1}
 .portfolio-cta{margin-top:5rem}
+.case-study{position:relative;overflow:hidden;margin-bottom:5rem;border:1px solid rgba(103,232,249,.2);border-radius:24px;background:linear-gradient(145deg,rgba(14,7,50,.78),rgba(5,18,39,.7));box-shadow:0 28px 90px rgba(0,0,0,.28)}
+.case-study-visual{display:grid;grid-template-columns:1fr 180px;align-items:end;gap:1.5rem;padding:3rem;background:radial-gradient(circle at 70% 20%,rgba(103,232,249,.13),transparent 35%),linear-gradient(135deg,#0c0825,#06182c)}
+.case-laptop{padding:10px 10px 18px;border:1px solid rgba(167,139,250,.25);border-radius:14px 14px 5px 5px;background:#050312;box-shadow:0 25px 65px rgba(0,0,0,.48);animation:deviceFloat 6s ease-in-out infinite}
+.case-laptop::after{content:'';display:block;width:112%;height:7px;margin:18px 0 -24px -6%;border-radius:2px 2px 8px 8px;background:linear-gradient(180deg,#302d3d,#11101a)}
+.case-screen{overflow:hidden;min-height:270px;border:1px solid var(--bdr);border-radius:7px;background:linear-gradient(145deg,#f9f5ff,#eaf8fb);color:#1d1830}
+.case-screen-bar{height:25px;background:#171324}.case-screen-hero{padding:2rem 1.5rem;background:linear-gradient(135deg,#342358,#166b75);color:#fff}.case-screen-hero i{font-size:2rem;margin-bottom:.8rem}.case-screen-hero strong{display:block;font-family:var(--fs);font-size:1.3rem}.case-screen-lines{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;padding:1rem}.case-screen-lines span{height:65px;border-radius:7px;background:linear-gradient(145deg,#fff,#e9e2f1);box-shadow:0 4px 15px rgba(25,18,45,.1)}
+.case-phone{padding:8px;border:1px solid rgba(103,232,249,.28);border-radius:24px;background:#050312;box-shadow:0 20px 55px rgba(0,0,0,.5);animation:deviceFloat 6s -2s ease-in-out infinite}.case-phone-screen{min-height:315px;padding:2.5rem .8rem 1rem;border-radius:17px;background:linear-gradient(160deg,#342358,#137682);color:#fff;text-align:center}.case-phone-screen i{font-size:2rem;margin-bottom:1rem}.case-phone-screen strong{display:block;font-family:var(--fs);font-size:1.05rem}.case-phone-screen span{display:block;height:42px;margin-top:1rem;border-radius:7px;background:rgba(255,255,255,.12)}
+@keyframes deviceFloat{50%{transform:translateY(-8px)}}
+.case-study-content{padding:clamp(2rem,5vw,3.5rem)}
+.case-study-top{display:flex;align-items:flex-start;justify-content:space-between;gap:1.5rem;margin-bottom:2.4rem}.case-study-title{font-family:var(--fs);font-size:clamp(2rem,4vw,3rem);font-weight:400}.case-study-kicker{color:var(--c);font-family:var(--fm);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:.55rem}
+.case-study-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.1rem}.case-detail{padding:1.3rem;border:1px solid var(--bdr);border-radius:13px;background:rgba(5,12,31,.42)}.case-detail h4{display:flex;align-items:center;gap:.55rem;margin-bottom:.65rem;font-size:.9rem}.case-detail h4 i{color:var(--c)}.case-detail p,.case-detail li{color:var(--text2);font-size:.83rem;line-height:1.7}.case-detail ul{display:grid;gap:.35rem;padding-left:1rem}.case-detail-wide{grid-column:1/-1}.case-actions{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:2rem}
 
 #services{overflow:hidden;background:linear-gradient(180deg,transparent,rgba(8,3,30,.5),transparent)}
 .services-orb{position:absolute;width:620px;height:620px;border-radius:50%;filter:blur(90px);pointer-events:none;opacity:.12;background:linear-gradient(135deg,var(--v2),var(--c2));top:8%;right:-18%}
@@ -645,6 +681,23 @@ footer{position:relative;z-index:10;border-top:1px solid var(--bdr);padding:2rem
 .faq-answer-inner{overflow:hidden}
 .faq-answer p{padding:0 4.5rem 1.5rem 1.5rem;color:var(--text2);font-size:.88rem;line-height:1.82}
 
+/* studio value, availability and technology sections */
+.studio-section{overflow:hidden;background:linear-gradient(180deg,transparent,rgba(6,21,43,.45),transparent)}
+.studio-head{text-align:center;max-width:850px;margin:0 auto 3.2rem}.studio-head .lead{max-width:720px;margin:.9rem auto 0}
+.availability-card{display:grid;grid-template-columns:1fr auto;align-items:center;gap:2rem;max-width:900px;margin:0 auto 5rem;padding:2rem 2.2rem;border:1px solid rgba(52,211,153,.24);border-radius:20px;background:linear-gradient(135deg,rgba(52,211,153,.065),rgba(8,145,178,.075));-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);box-shadow:0 24px 70px rgba(0,0,0,.2)}
+.availability-status{display:flex;align-items:center;gap:.9rem}.availability-status-dot{width:13px;height:13px;flex:0 0 auto;border-radius:50%;background:var(--green);box-shadow:0 0 0 6px rgba(52,211,153,.12),0 0 24px rgba(52,211,153,.45);animation:ledPulse 2.5s infinite}.availability-status h3{font-size:1.08rem;margin-bottom:.3rem}.availability-status p,.availability-response span{color:var(--text3);font-family:var(--fm);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase}.availability-response{text-align:right}.availability-response strong{display:block;margin-top:.35rem;color:var(--c);font-size:1.1rem}
+.choice-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}.choice-card,.tech-card{position:relative;overflow:hidden;padding:1.6rem;border:1px solid var(--bdr);border-radius:16px;background:linear-gradient(145deg,rgba(14,7,50,.72),rgba(5,18,39,.66));-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);box-shadow:0 18px 50px rgba(0,0,0,.15);transition:transform .32s,border-color .32s,box-shadow .32s}.choice-card:hover,.tech-card:hover{transform:translateY(-7px);border-color:rgba(103,232,249,.36);box-shadow:0 28px 75px rgba(0,0,0,.3),0 0 30px rgba(8,145,178,.08)}
+.choice-icon,.tech-icon{width:45px;height:45px;display:grid;place-items:center;margin-bottom:1.1rem;border:1px solid var(--bdrc);border-radius:12px;background:linear-gradient(135deg,rgba(8,145,178,.12),rgba(124,58,237,.12));color:var(--c)}.choice-card h3,.tech-card h3{font-size:.98rem;margin-bottom:.55rem}.choice-card p{color:var(--text2);font-size:.82rem;line-height:1.7}
+.technology-section{margin-top:6rem}.tech-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1rem}.tech-list{display:flex;flex-wrap:wrap;gap:.4rem;list-style:none}.tech-list li{padding:.28rem .55rem;border:1px solid var(--bdr);border-radius:5px;background:rgba(103,232,249,.035);color:var(--text2);font-family:var(--fm);font-size:.56rem;line-height:1.4}
+
+/* development process */
+#process{overflow:hidden;background:linear-gradient(180deg,transparent,rgba(8,3,30,.48),transparent)}
+.process-track{position:relative;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:.8rem}.process-track::before{content:'';position:absolute;top:28px;left:7%;right:7%;height:1px;background:linear-gradient(90deg,transparent,var(--v),var(--c),transparent);opacity:.45}
+.process-step{position:relative;text-align:center;padding:0 .3rem}.process-icon{position:relative;z-index:1;width:56px;height:56px;display:grid;place-items:center;margin:0 auto 1rem;border:1px solid rgba(103,232,249,.28);border-radius:16px;background:linear-gradient(145deg,#10082f,#07172c);color:var(--c);box-shadow:0 0 28px rgba(8,145,178,.1);transition:transform .3s,box-shadow .3s}.process-step:hover .process-icon{transform:translateY(-6px) scale(1.05);box-shadow:0 12px 38px rgba(8,145,178,.2)}.process-number{color:var(--text3);font-family:var(--fm);font-size:.52rem;letter-spacing:.1em}.process-step h3{margin-top:.3rem;font-size:.82rem}
+
+/* shared premium refinements */
+.btn-glow,.btn-outline,.service-action{border-radius:8px}.btn-glow:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(37,99,235,.35)}.rv{transition-duration:1s}.wrap{isolation:isolate}
+
 /* ══════════════════════════════════════════
    CREDENTIALS GRID
 ══════════════════════════════════════════ */
@@ -704,6 +757,12 @@ footer{position:relative;z-index:10;border-top:1px solid var(--bdr);padding:2rem
   .why-grid{grid-template-columns:repeat(2,1fr)}
   .timeline-grid{grid-template-columns:1fr}
   .student-grid{grid-template-columns:1fr}
+  .company-stat-grid{grid-template-columns:repeat(2,1fr)}
+  .case-study-visual{grid-template-columns:1fr 150px;padding:2rem}
+  .tech-grid{grid-template-columns:repeat(2,1fr)}
+  .tech-card:last-child{grid-column:1/-1}
+  .process-track{grid-template-columns:repeat(4,1fr);gap:2rem 1rem}.process-track::before{display:none}
+  .footer-main{grid-template-columns:1fr;gap:2.5rem}
   .testimonial-stats{grid-template-columns:repeat(2,1fr)}
   .testimonial-stat:nth-child(2){border-right:0}
   .testimonial-stat:nth-child(-n+2){border-bottom:1px solid var(--bdr)}
@@ -732,7 +791,7 @@ footer{position:relative;z-index:10;border-top:1px solid var(--bdr);padding:2rem
 /* MOBILE */
 @media(max-width:560px){
   :root{--nav:58px}
-  .logo-text{display:none}
+  .logo-text{display:inline;font-size:.52rem;letter-spacing:.05em}
   .wrap{padding:4.5rem 1.1rem}
   .display{font-size:clamp(1.6rem,8vw,2.4rem)}
   .lead{font-size:.93rem}
@@ -743,6 +802,9 @@ footer{position:relative;z-index:10;border-top:1px solid var(--bdr);padding:2rem
   .role-tag{font-size:.58rem;padding:.28rem .7rem}
   .hero-tagline{font-size:.95rem}
   .hero-actions{flex-direction:column;align-items:stretch;gap:.7rem}
+  .hero-code{display:none}
+  .hero-mini-stats{grid-template-columns:repeat(2,1fr)}
+  .hero-mini-stat:nth-child(2){border-right:0}.hero-mini-stat:nth-child(-n+2){border-bottom:1px solid var(--bdr)}
   .btn-glow,.btn-outline{width:100%;justify-content:center;text-align:center}
   .tools-bento{grid-template-columns:repeat(2,1fr)!important}
   .cred-grid{grid-template-columns:1fr}
@@ -774,6 +836,11 @@ footer{position:relative;z-index:10;border-top:1px solid var(--bdr);padding:2rem
   .timeline-assurance{padding:1.2rem}
   .student-card{min-height:0;padding:1.5rem}
   .student-verification{padding:1.2rem}
+  .company-stat-grid{grid-template-columns:1fr}
+  .case-study-visual{grid-template-columns:1fr;padding:1.25rem}.case-phone{width:145px;margin:-3rem 0 0 auto}.case-study-grid{grid-template-columns:1fr}.case-detail-wide{grid-column:auto}.case-study-top{flex-direction:column}
+  .availability-card{grid-template-columns:1fr;padding:1.4rem}.availability-response{text-align:left;padding-top:1rem;border-top:1px solid var(--bdr)}
+  .choice-grid,.tech-grid,.process-track{grid-template-columns:1fr}.tech-card:last-child{grid-column:auto}.process-step{display:grid;grid-template-columns:56px 1fr;align-items:center;gap:1rem;text-align:left}.process-icon{margin:0}.process-number{display:none}.process-step h3{margin:0}
+  .footer-main{padding:3.5rem 1.1rem 2.5rem}.footer-links{grid-template-columns:1fr}.footer-bottom{padding:1.3rem 1.1rem;flex-direction:column;align-items:flex-start}
   .testimonial-client{align-items:flex-start}
   .testimonial-stats{grid-template-columns:1fr}
   .testimonial-stat{border-right:0;border-bottom:1px solid var(--bdr)}
@@ -885,7 +952,7 @@ footer{position:relative;z-index:10;border-top:1px solid var(--bdr);padding:2rem
 <nav id="nav">
   <a href="#hero" class="nav-logo">
     <div class="logo-mark">T</div>
-    <span class="logo-text">Taylor.dev</span>
+    <span class="logo-text">Taylor Software Tech Studio</span>
   </a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
@@ -919,6 +986,9 @@ footer{position:relative;z-index:10;border-top:1px solid var(--bdr);padding:2rem
   <div class="hero-grid-lines"></div>
   <div class="h-orb hero-orb-left"></div>
   <div class="h-orb hero-orb-right"></div>
+  <div class="hero-float hero-float-one"></div><div class="hero-float hero-float-two"></div>
+  <div class="hero-code hero-code-one" aria-hidden="true">const studio = {<br>&nbsp;&nbsp;design: 'modern',<br>&nbsp;&nbsp;software: 'scalable',<br>&nbsp;&nbsp;security: true<br>};</div>
+  <div class="hero-code hero-code-two" aria-hidden="true">function buildFuture(idea) {<br>&nbsp;&nbsp;return design(idea)<br>&nbsp;&nbsp;&nbsp;&nbsp;.develop()<br>&nbsp;&nbsp;&nbsp;&nbsp;.deploy();<br>}</div>
 
   <div class="hero-content">
     <div class="hero-status">
@@ -933,15 +1003,10 @@ footer{position:relative;z-index:10;border-top:1px solid var(--bdr);padding:2rem
       <span class="n-grad">Taylor.</span>
     </h1>
 
-    <div class="hero-roles">
-      <span class="role-tag rt-v">Web Developer</span>
-      <span class="role-tag rt-c">Cybersecurity</span>
-      <span class="role-tag rt-r">Software Engineer</span>
-      <span class="role-tag rt-v">CS @ Langston U.</span>
-    </div>
+    <div class="hero-typing"><span id="typing-role">Full Stack Software Engineer</span><span class="typing-cursor" aria-hidden="true"></span></div>
 
     <p class="hero-tagline">
-      A <strong>Computer Science student at Langston University</strong> building secure, stunning digital experiences — from pixel-perfect frontends to rock-solid Node.js backends.
+      Building modern websites, scalable software, and secure digital experiences for businesses, entrepreneurs, and students. Every project is designed with performance, usability, and long-term growth in mind.
     </p>
 
     <div class="hero-actions">
@@ -953,6 +1018,12 @@ footer{position:relative;z-index:10;border-top:1px solid var(--bdr);padding:2rem
       </a>
       <a href="#contact" class="btn-outline">Get In Touch</a>
     </div>
+    <div class="hero-mini-stats" aria-label="Portfolio statistics">
+      <div class="hero-mini-stat"><span class="hero-mini-value"><span data-counter="1">0</span>+</span><span class="hero-mini-label">Projects Completed</span></div>
+      <div class="hero-mini-stat"><span class="hero-mini-value" data-counter="1">0</span><span class="hero-mini-label">Happy Clients</span></div>
+      <div class="hero-mini-stat"><span class="hero-mini-value"><span data-counter="15">0</span>+</span><span class="hero-mini-label">Technologies</span></div>
+      <div class="hero-mini-stat"><span class="hero-mini-value"><span data-counter="3">0</span>+</span><span class="hero-mini-label">Years Learning</span></div>
+    </div>
   </div>
 
   <div class="scroll-cue">
@@ -960,6 +1031,37 @@ footer{position:relative;z-index:10;border-top:1px solid var(--bdr);padding:2rem
     <div class="scroll-cue-line"></div>
   </div>
 </section>
+
+<!-- ══════════════ COMPANY STATISTICS ══════════════ -->
+<section id="company-stats" aria-label="Studio statistics"><div class="wrap"><div class="company-stat-grid">
+  <article class="company-stat-card rv"><div class="company-stat-icon"><i class="fa-solid fa-code-branch"></i></div><div class="company-stat-value"><span data-counter="1">0</span>+</div><div class="company-stat-label">Projects Built</div></article>
+  <article class="company-stat-card rv"><div class="company-stat-icon"><i class="fa-solid fa-heart"></i></div><div class="company-stat-value" data-counter="1">0</div><div class="company-stat-label">Happy Clients</div></article>
+  <article class="company-stat-card rv"><div class="company-stat-icon"><i class="fa-solid fa-mobile-screen"></i></div><div class="company-stat-value"><span data-counter="100">0</span>%</div><div class="company-stat-label">Responsive Websites</div></article>
+  <article class="company-stat-card rv"><div class="company-stat-icon"><i class="fa-solid fa-layer-group"></i></div><div class="company-stat-value"><span data-counter="15">0</span>+</div><div class="company-stat-label">Technologies Used</div></article>
+  <article class="company-stat-card rv"><div class="company-stat-icon"><i class="fa-solid fa-clock"></i></div><div class="company-stat-value">&lt;24h</div><div class="company-stat-label">Average Response Time</div></article>
+  <article class="company-stat-card rv"><div class="company-stat-icon"><i class="fa-solid fa-headset"></i></div><div class="company-stat-value">Ongoing</div><div class="company-stat-label">Support Available</div></article>
+</div></div></section>
+
+<!-- ══════════════ WHY CHOOSE THE STUDIO ══════════════ -->
+<section id="why-studio" class="studio-section" aria-labelledby="why-studio-title"><div class="wrap">
+  <aside class="availability-card rv" aria-label="Current project availability"><div class="availability-status"><span class="availability-status-dot" aria-hidden="true"></span><div><h3>Accepting New Projects</h3><p>Current availability</p></div></div><div class="availability-response"><span>Average Response</span><strong>Under 24 Hours</strong></div></aside>
+  <header class="studio-head rv"><div class="services-badge"><i class="fa-solid fa-gem"></i> Built Around Your Goals</div><span class="section-label">The Studio Difference</span><h2 class="display" id="why-studio-title">Why Choose <em>Taylor Software Tech Studio?</em></h2><p class="lead">Thoughtful development, modern engineering, and reliable support from concept through launch.</p></header>
+  <div class="choice-grid">
+    <article class="choice-card rv"><div class="choice-icon"><i class="fa-solid fa-code"></i></div><h3>Custom Development</h3><p>Purpose-built solutions shaped around your goals, audience, and business requirements.</p></article>
+    <article class="choice-card rv"><div class="choice-icon"><i class="fa-solid fa-mobile-screen-button"></i></div><h3>Responsive Design</h3><p>Polished experiences that adapt naturally across desktops, tablets, and mobile devices.</p></article>
+    <article class="choice-card rv"><div class="choice-icon"><i class="fa-solid fa-bolt"></i></div><h3>Fast Performance</h3><p>Clean, efficient development focused on quick loading and smooth interactions.</p></article>
+    <article class="choice-card rv"><div class="choice-icon"><i class="fa-solid fa-shield-halved"></i></div><h3>Secure Coding</h3><p>Security-minded practices applied throughout development and deployment.</p></article>
+    <article class="choice-card rv"><div class="choice-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div><h3>SEO Friendly</h3><p>Semantic structure and technical foundations that help people discover your website.</p></article>
+    <article class="choice-card rv"><div class="choice-icon"><i class="fa-solid fa-headset"></i></div><h3>Ongoing Support</h3><p>Continued help for maintenance, improvements, new features, and future growth.</p></article>
+  </div>
+  <section class="technology-section" aria-labelledby="technology-title"><header class="studio-head rv"><span class="section-label">Engineering Stack</span><h2 class="display" id="technology-title">Technologies &amp; <em>Tools</em></h2><p class="lead">A practical development toolkit for building, testing, and deploying modern digital products.</p></header><div class="tech-grid">
+    <article class="tech-card rv"><div class="tech-icon"><i class="fa-solid fa-laptop-code"></i></div><h3>Frontend</h3><ul class="tech-list"><li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>Responsive Design</li></ul></article>
+    <article class="tech-card rv"><div class="tech-icon"><i class="fa-solid fa-server"></i></div><h3>Backend</h3><ul class="tech-list"><li>Node.js</li><li>Express.js</li><li>REST APIs</li><li>HTTP &amp; Routing</li></ul></article>
+    <article class="tech-card rv"><div class="tech-icon"><i class="fa-solid fa-database"></i></div><h3>Databases</h3><ul class="tech-list"><li>SQL Fundamentals</li><li>Data Modeling</li><li>Server-side Logic</li></ul></article>
+    <article class="tech-card rv"><div class="tech-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div><h3>Cloud &amp; Deployment</h3><ul class="tech-list"><li>Render</li><li>Vercel</li><li>DNS Setup</li><li>Production Deployment</li></ul></article>
+    <article class="tech-card rv"><div class="tech-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div><h3>Development Tools</h3><ul class="tech-list"><li>Git</li><li>GitHub</li><li>VS Code</li><li>npm</li><li>CLI</li></ul></article>
+  </div></section>
+</div></section>
 
 <!-- ══════════════ ABOUT ══════════════ -->
 <section id="about">
@@ -1248,6 +1350,23 @@ footer{position:relative;z-index:10;border-top:1px solid var(--bdr);padding:2rem
   <div class="wrap">
     <header class="portfolio-head rv"><div class="services-badge"><i class="fa-solid fa-layer-group"></i> Selected Work &amp; Concepts</div><span class="section-label">Projects</span><h2 class="display" id="portfolio-title">Portfolio <em>Showcase</em></h2><p class="lead">Explore a collection of websites, software applications, and real client projects I've designed and developed. Every project represents my commitment to creating modern, responsive, scalable, and high-quality digital experiences.</p></header>
 
+    <article class="case-study rv" aria-labelledby="haven-case-title">
+      <div class="case-study-visual"><div class="case-laptop"><div class="case-screen"><div class="case-screen-bar"></div><div class="case-screen-hero"><i class="fa-solid fa-heart-pulse"></i><strong>Haven of Healing</strong><small>Counseling &amp; Wellness</small></div><div class="case-screen-lines"><span></span><span></span><span></span></div></div></div><div class="case-phone"><div class="case-phone-screen"><i class="fa-solid fa-heart-pulse"></i><strong>Healing starts here.</strong><span></span><span></span><span></span></div></div></div>
+      <div class="case-study-content">
+        <div class="case-study-top"><div><div class="case-study-kicker">Featured Client Case Study</div><h3 class="case-study-title" id="haven-case-title">Haven of Healing Counseling</h3></div><span class="portfolio-badge portfolio-badge--client">Live Production Project</span></div>
+        <div class="case-study-grid">
+          <section class="case-detail"><h4><i class="fa-solid fa-binoculars"></i> Project Overview</h4><p>A professional digital home for a counseling and wellness practice, designed to communicate trust, make services easy to understand, and help prospective clients take the next step.</p></section>
+          <section class="case-detail"><h4><i class="fa-solid fa-triangle-exclamation"></i> The Challenge</h4><p>Translate a compassionate, people-first practice into a clear online experience that feels welcoming while remaining accessible, responsive, and production-ready.</p></section>
+          <section class="case-detail"><h4><i class="fa-solid fa-lightbulb"></i> The Solution</h4><p>A mobile-first interface with purposeful content hierarchy, accessible navigation, clear service discovery, and a reliable contact workflow.</p></section>
+          <section class="case-detail"><h4><i class="fa-solid fa-code"></i> Technologies Used</h4><div class="portfolio-stack"><span class="stk stk-v">HTML</span><span class="stk stk-v">CSS</span><span class="stk stk-b">JavaScript</span><span class="stk stk-b">Node.js</span><span class="stk stk-c">GitHub</span><span class="stk stk-c">Render</span></div></section>
+          <section class="case-detail"><h4><i class="fa-solid fa-list-check"></i> Key Features</h4><ul><li>Responsive, accessible page layouts</li><li>Clear counseling service navigation</li><li>Professional contact workflow</li><li>Secure production deployment</li></ul></section>
+          <section class="case-detail"><h4><i class="fa-solid fa-calendar-check"></i> Development Timeline</h4><p>Delivered through a structured process covering discovery, design, responsive development, testing, client review, and production launch.</p></section>
+          <section class="case-detail case-detail-wide"><h4><i class="fa-solid fa-chart-line"></i> Results</h4><p>A polished and credible online presence that reflects the practice's values, works across screen sizes, and gives visitors a direct path to learn about services and connect with the business.</p></section>
+        </div>
+        <div class="case-actions"><a href="https://www.havenofhealingcounseling.com" target="_blank" rel="noopener" class="btn-glow"><span>Live Website <i class="fa-solid fa-arrow-up-right-from-square"></i></span></a></div>
+      </div>
+    </article>
+
     <section class="portfolio-category" aria-labelledby="client-projects"><div class="portfolio-grid">
       <header class="portfolio-category-head rv"><h3 class="portfolio-category-title" id="client-projects"><i class="fa-solid fa-building"></i> Business &amp; Client Websites</h3><p>Professional websites built for real businesses, organizations, and entrepreneurs.</p></header>
       <article class="portfolio-card rv" data-tilt><div class="card-glow"></div><div class="portfolio-shot"><div class="portfolio-shot-inner"><div class="shot-bar"><i></i><i></i><i></i></div><div class="shot-layout"><div class="shot-copy"><div class="shot-line"></div><div class="shot-line"></div><div class="shot-line"></div><div class="shot-button"></div></div><div class="shot-visual"><i class="fa-solid fa-heart"></i></div></div></div></div><div class="portfolio-body"><div class="portfolio-meta"><span class="portfolio-badge portfolio-badge--client">Real Client Project</span><span class="portfolio-badge">Live</span></div><h4 class="portfolio-title">⭐ Haven of Healing Counseling</h4><p class="portfolio-desc">Designed and developed a professional counseling website focused on user experience, accessibility, responsive design, and helping clients easily learn about available counseling services.</p><div class="portfolio-stack"><span class="stk stk-v">HTML</span><span class="stk stk-v">CSS</span><span class="stk stk-b">JavaScript</span><span class="stk stk-c">Responsive Design</span><span class="stk stk-b">GitHub</span><span class="stk stk-c">Vercel</span></div><ul class="portfolio-features"><li><i class="fa-solid fa-check"></i>Accessible UX</li><li><i class="fa-solid fa-check"></i>Mobile-first layout</li><li><i class="fa-solid fa-check"></i>Service discovery</li><li><i class="fa-solid fa-check"></i>Production deployment</li></ul><div class="portfolio-actions"><a href="https://www.havenofhealingcounseling.com" target="_blank" rel="noopener" class="service-action">Visit Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a><a href="#contact" class="service-action">Project Details <i class="fa-solid fa-arrow-right"></i></a></div></div></article>
@@ -1310,6 +1429,17 @@ footer{position:relative;z-index:10;border-top:1px solid var(--bdr);padding:2rem
     <div class="services-cta rv"><div class="cta-kicker"><i class="fa-solid fa-rocket"></i> Have a Project in Mind?</div><h3>Let's build something amazing together.</h3><p>Whether you need a professional website, custom web application, or improvements to an existing project, I'd love to help bring your ideas to life.</p><div class="services-cta-actions"><a href="#contact" class="btn-glow"><span>Start Your Project <i class="fa-solid fa-arrow-right"></i></span></a><a href="#projects" class="btn-outline">View My Portfolio</a></div></div>
   </div>
 </section>
+
+<!-- ══════════════ DEVELOPMENT PROCESS ══════════════ -->
+<section id="process" aria-labelledby="process-title"><div class="wrap"><header class="studio-head rv"><div class="services-badge"><i class="fa-solid fa-diagram-project"></i> From Idea to Launch</div><span class="section-label">How Projects Move Forward</span><h2 class="display" id="process-title">Development <em>Process</em></h2><p class="lead">A clear, collaborative workflow that keeps every stage focused and transparent.</p></header><div class="process-track">
+  <article class="process-step rv"><div class="process-icon"><i class="fa-solid fa-comments"></i></div><div><span class="process-number">01</span><h3>Discovery</h3></div></article>
+  <article class="process-step rv"><div class="process-icon"><i class="fa-solid fa-list-check"></i></div><div><span class="process-number">02</span><h3>Planning</h3></div></article>
+  <article class="process-step rv"><div class="process-icon"><i class="fa-solid fa-pen-ruler"></i></div><div><span class="process-number">03</span><h3>Design</h3></div></article>
+  <article class="process-step rv"><div class="process-icon"><i class="fa-solid fa-code"></i></div><div><span class="process-number">04</span><h3>Development</h3></div></article>
+  <article class="process-step rv"><div class="process-icon"><i class="fa-solid fa-vial-circle-check"></i></div><div><span class="process-number">05</span><h3>Testing</h3></div></article>
+  <article class="process-step rv"><div class="process-icon"><i class="fa-solid fa-rocket"></i></div><div><span class="process-number">06</span><h3>Deployment</h3></div></article>
+  <article class="process-step rv"><div class="process-icon"><i class="fa-solid fa-headset"></i></div><div><span class="process-number">07</span><h3>Support</h3></div></article>
+</div></div></section>
 
 <!-- ══════════════ STUDENT DISCOUNTS ══════════════ -->
 <section id="student-discounts" aria-labelledby="student-discounts-title">
@@ -1750,9 +1880,12 @@ footer{position:relative;z-index:10;border-top:1px solid var(--bdr);padding:2rem
 </section>
 
 <!-- FOOTER -->
-<footer>
-  <div class="foot-l">Designed &amp; built by <span>Taylor</span> · Langston University CS · 2026</div>
-  <div class="foot-r"><a href="#hero">Back to top ↑</a></div>
+<footer class="site-footer">
+  <div class="footer-main">
+    <div class="footer-brand"><div class="footer-logo"><div class="logo-mark">T</div><strong>Taylor Software Tech Studio</strong></div><p>Modern websites, scalable software, and secure digital experiences built with purpose, performance, and long-term growth in mind.</p></div>
+    <div><div class="footer-nav-title">Navigation</div><nav class="footer-links" aria-label="Footer navigation"><a href="#services"><i class="fa-solid fa-laptop-code"></i> Services</a><a href="#projects"><i class="fa-solid fa-layer-group"></i> Projects</a><a href="#testimonials"><i class="fa-solid fa-star"></i> Testimonials</a><a href="#faq"><i class="fa-solid fa-circle-question"></i> FAQ</a><a href="https://github.com/taylorsoftwaretechstudios" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a><a href="https://www.linkedin.com/in/taylor-barnes-4a176a260/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in"></i> LinkedIn</a><a href="mailto:TaylorSoftwareTechStudio@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a></nav></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 Taylor Software Tech Studio</span><a href="#hero">Back to top ↑</a></div>
 </footer>
 <div class="portfolio-note">
   <span class="pn-icon">🔄</span>
@@ -2120,6 +2253,35 @@ document.querySelectorAll('.faq-question').forEach(button=>{
     }
   });
 });
+
+/* ── HERO ROLE TYPING ── */
+const typingRole=document.getElementById('typing-role');
+const typingRoles=['Full Stack Software Engineer','Software Developer','Website Developer','Cybersecurity Enthusiast','Business Solutions Developer'];
+if(typingRole){
+  let roleIndex=0,charIndex=typingRoles[0].length,deleting=true;
+  const typeRole=()=>{
+    const role=typingRoles[roleIndex];
+    charIndex+=deleting?-1:1;
+    typingRole.textContent=role.slice(0,charIndex);
+    let delay=deleting?35:65;
+    if(!deleting&&charIndex===role.length){deleting=true;delay=1500}
+    else if(deleting&&charIndex===0){deleting=false;roleIndex=(roleIndex+1)%typingRoles.length;delay=300}
+    setTimeout(typeRole,delay);
+  };
+  setTimeout(typeRole,1200);
+}
+
+/* ── ANIMATED COUNTERS ── */
+const counterEls=document.querySelectorAll('[data-counter]');
+const counterObs=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(!entry.isIntersecting)return;
+    const el=entry.target,target=Number(el.dataset.counter),start=performance.now(),duration=1100;
+    const tick=now=>{const progress=Math.min((now-start)/duration,1);el.textContent=Math.round(target*(1-Math.pow(1-progress,3)));if(progress<1)requestAnimationFrame(tick)};
+    requestAnimationFrame(tick);counterObs.unobserve(el);
+  });
+},{threshold:.35});
+counterEls.forEach(el=>counterObs.observe(el));
 
 /* ── SCROLL REVEAL + STAGGER ── */
 const rvEls=document.querySelectorAll('.rv,.rvl,.rvr');
